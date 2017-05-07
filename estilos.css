@@ -1,0 +1,86 @@
+/* {
+	padding:0;
+	margin:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}*/
+
+.back {
+width:468px; 
+height:500px; 
+margin:0 0 0 0; 
+background:url(disco.jpg) no-repeat #DCDCDC; 
+}
+.back.middleback .middlefront .logo {   
+width:468px; 
+height:500px; 
+background:url(nota.png) no-repeat; 
+}
+.back .middleback .middlefront {
+width:468px;
+height:500px;
+background:url(NYC.jpeg) no-repeat;
+}
+.back .middleback{
+width:468px;
+height:500px;
+background:url(circulo.jpg) no-repeat;
+ 
+}
+ 
+/*body {
+	background:url(nota.png); /* Nuestra imagen de fondo */
+	/*background:url(disco.jpg); /* Nuestra imagen de fondo */
+	/*background-repeat:no-repeat; /* Indicamos que no se repetira */
+	/*background-size:cover; /* Encajamos la imagen al 100% del ancho */
+	/*background-attachment: fixed; /* Establecemos una posicion fija para la imagen */
+
+
+ 
+	/*font-family:helvetica, arial, sans-serif;
+	line-height:20px;
+}
+
+.caja {
+	display: table;
+	width: 300%;
+}
+
+.contenedor {
+	display: table-row;
+}
+
+.columna {
+	//width: 100%;
+	max-width:900px;
+	margin:auto;
+	//overflow: hidden;
+	display: table-cell;
+}
+ 
+article {
+	background:rgba(24,8,33,.9);
+	padding:20px;
+	margin:20px 0;
+	color:#fff;
+	box-shadow:0 5px 5px 3px rgba(0, 0, 0, 0.25);
+}
+ 
+article h2 {
+	color:#fff;
+}
+ 
+article hr {
+	background:#F64740;
+	height:5px;
+	border:none;
+}
+ 
+article p {
+	line-height: 25px;
+}
+ 
+article h2, article p, article hr {
+	margin-bottom: 20px;
+}*/
