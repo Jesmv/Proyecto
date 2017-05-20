@@ -8,7 +8,7 @@
 		private $database;
 		private $charset;
 
-		public function construct(){
+		public function __construct(){
 			$db_conf = require_once 'config/database.php';
 			$this->driver = $db_conf["driver"];
 			$this->host = $db_conf["host"];
@@ -19,11 +19,9 @@
 		}
 
 		public function conexion() {
-
             $con=new mysqli($this->host, $this->user, $this->pass, $this->database);
             $con->query("SET NAMES '".$this->charset."'");
-         
-       		return $con;
+			return $con;
 		}
 	}
  ?>
