@@ -3,12 +3,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="theme-color" content="#2196F3">
+    <meta name="theme-color" content="#EF0897">
     <title>Material UI One Page Theme</title>
 
     <!-- CSS  -->
     <link href="css/materialize.css" type="text/css" rel="stylesheet">
-	<link href="css/font-awesome.css" type="text/css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body id="top" class="scrollspy">
@@ -30,17 +30,17 @@
             <a href="#" id="logo-container" class="brand-logo">Song2Song</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#intro">Service</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="https://github.com/joashp/material-design-template" target="_blank">Download</a></li>
+                    <li><a href="#logIn">Log In</a></li>
+                    <li><a href="#newUser">New User</a></li>
+                    <li><a href="#music">Music</a></li>      
+                    <li><a href="#contact">Contact</a></li>     
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="#intro">Service</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="https://github.com/joashp/material-design-template" target="_blank">Download</a></li>
+                    <li><a href="logIn">Log In</a></li>
+                    <li><a href="#newUser">New User</a></li>
+                    <li><a href="#music">Music</a></li>      
+                    <li><a href="#contact">Contact</a></li> 
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
@@ -70,36 +70,14 @@
                 <h2 class="center header text_h2"> Si te gusta disfrutar de la música has venido al sitio correcto. <span class="span_h2"> Song2Song  </span>
                 te ofrece una experiencia musical, para disfrutar con los amigos o contigo mismo. <span class="span_h2"> ¡Descubreme!</span> </h2>
             </div>
-
-            <div  class="col s12 m4 l4">
-                <div class="center promo promo-example">
-                    <i class="mdi-image-flash-on"></i>
-                    <h5 class="promo-caption">Speeds up development</h5>
-                    <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                </div>
-            </div>
-            <div class="col s12 m4 l4">
-                <div class="center promo promo-example">
-                    <i class="mdi-social-group"></i>
-                    <h5 class="promo-caption">User Experience Focused</h5>
-                    <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                </div>
-            </div>
-            <div class="col s12 m4 l4">
-                <div class="center promo promo-example">
-                    <i class="mdi-hardware-desktop-windows"></i>
-                    <h5 class="promo-caption">Fully responsive</h5>
-                    <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
 <!--Music-->
-<div class="section scrollspy" id="work">
+<div class="section scrollspy" id="music">
     <div class="container">
-        <h2 class="header text_b">Work </h2>
+        <h2 class="header text_b">Music </h2>
         <div class="row">
             <div class="col s12 m4 l4">
                 <div class="card">
@@ -107,7 +85,7 @@
                         <img class="activator" src="img/project1.jpg">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                        <span class="card-title activator grey-text text-darken-4">Rock <i class="mdi-navigation-more-vert right"></i></span>
                         <p><a href="#">Project link</a></p>
                     </div>
                     <div class="card-reveal">
@@ -382,11 +360,32 @@
     </div>
 </footer>
 
+<!-- Modal Structure -->
+  <div id="logIn" class="modal">
+    <div class="modal-content">
+      <h4>Iniciar Sesion</h4>
+      <form action="<?php echo $helper->url('User', 'login') ?>" method="post">
+         <div class="row">
+          <div class="input-field col s6 " >
+            <input name="user_Name" id="user_Name" type="text" required/>
+            <label for="user_Name" class="#ad1457">Usuario</label>
+          </div>
+          <div class="input-field col s6">
+            <input name="user_Password" id="user_Password" type="password" required/>
+            <label for="user_Password" class="#ad1457">Contraseña</label>
+          </div>
+          <div class="modal-footer" id="sendUser">
+            <input class="btn waves-effect waves-light" type="submit" name="send" id="send">
+          </div>
+      </form>
+    </div>
+  </div>
 
     <!--  Scripts-->
     <script src="js/jquery-2.1.1.min.js"></script>
-	<script src="js/materialize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script src="js/init.js"></script>
+    <script src="js/script.js"></script>
 
     </body>
 </html>

@@ -13,14 +13,14 @@
     padding: 0 15px;
 }
 
-#intro, #work, #team {padding-top: 4rem;}
+#intro, #music, #team {padding-top: 4rem;}
 
 
 #index-banner {
     min-height: 632px;
     max-height: 864px;
     position: relative;
-    background-image: url(../img/10.jpg);
+    background-image: url(../img/1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -65,7 +65,11 @@ nav .brand-logo{
 
 .card-content a:hover {color: #EF0897;}
 
-#work, #team{background: rgb(247, 247, 247);}
+#music, #team{background: rgb(247, 247, 247);}
+
+#logIn{
+    color: #EF0897;
+}
 
 .text_pink{color:#EF9A9A;}
 
@@ -264,4 +268,19 @@ nav a.button-collapse {
 
 footer.page-footer {
     margin-top: 0px !important;
+}
+
+#user_Password, #user_Name {
+    border-bottom: 1px solid #ad1457;
+    box-shadow: 0 1px 0 0 #ad1457;
+    background-color: black;
+    color: #ad1457
+}
+
+#logIn, form, #sendUser {
+    background-color: black;
+}
+
+.input-field label {
+    color: #ad1457;
 }

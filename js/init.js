@@ -1,5 +1,4 @@
-(function($){
-  $(function(){
+$(function(){
 
     $('.button-collapse').sideNav();
 	$('.scrollspy').scrollSpy();
@@ -170,7 +169,7 @@
 	      'MozTransition'    : 'transitionend',
 	      'transition'       : 'transitionend'
 	},
-	transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
+	transEndEventName = 'transitionend';
 
 	function addDashes(name) {
 		return name.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); });
@@ -268,5 +267,4 @@
 	// 	card.addEventListener('click', scaleCard, false);
 	// });
 
-	}); // end of document ready
-})(jQuery); // end of jQuery name space
+}); // end of document ready

@@ -81,6 +81,12 @@ class User extends BaseEntity {
         $save=$this->db()->query($query);
         return $save;
     }
+
+    public function findUser($nick) {
+        $list = $this->getBy("nick", $nick);
+
+        return $list[0];
+    }
  
 }
 ?>

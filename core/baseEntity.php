@@ -32,7 +32,7 @@
 
 		public function getById($id){
         $query=$this->db->query("SELECT * FROM $this->table WHERE id=$id");
- 
+		$resultSet=[];
         if($row = $query->fetch_object()) {
            $resultSet=$row;
         }
@@ -42,7 +42,9 @@
 
     public function getBy($column,$value){
         $query=$this->db->query("SELECT * FROM $this->table WHERE $column='$value'");
- 
+		
+		$resultSet=[];
+
         while($row = $query->fetch_object()) {
            $resultSet[]=$row;
         }
