@@ -1,108 +1,392 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Song to Song</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#2196F3">
+    <title>Material UI One Page Theme</title>
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="estilos.css">
-	
+    <!-- CSS  -->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet">
+	<link href="css/font-awesome.css" type="text/css" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
-<body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
+<body id="top" class="scrollspy">
+
+<!-- Pre Loader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
+
+<!--Navigation-->
+ <div class="navbar-fixed">
+    <nav id="nav_f" class="default_color" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+            <a href="#" id="logo-container" class="brand-logo">Song2Song</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#intro">Service</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://github.com/joashp/material-design-template" target="_blank">Download</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#intro">Service</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://github.com/joashp/material-design-template" target="_blank">Download</a></li>
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active "><a class="link" href="#">Home</a></li>
-            <li><a class="link" href="#about">About</a></li>
-            <li><a class="link"  href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
-	
+</div>
 
-	<div class="container">
-		<h1>titulillo</h1>
-		<p>Lorem ipsum</p>
+<!--Hero-->
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h1 class="text_h center header cd-headline letters type">
+            <span>I Love Music</span> 
+            <span class="cd-words-wrapper waiting">
+                <b class="is-visible">Dancing</b>
+                <b>Singing</b>
+                <b>with Friends</b>
+            </span>
+        </h1>
+    </div>
+</div>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempor in nisi a sollicitudin. 
-			Praesent tincidunt cursus ante sed ultrices. Integer sit amet fermentum velit. Integer consequat diam vitae felis suscipit ultricies. 
-			Ut ut commodo augue, fermentum dapibus arcu. Vestibulum pharetra consectetur porta. Donec tincidunt neque a velit dignissim efficitur. 
-			Mauris in porta augue, in elementum lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-			Vivamus in rutrum ex, eu cursus ligula. Suspendisse potenti. Phasellus volutpat tempor enim, ac feugiat ligula fermentum vitae. Nam 
-			rutrum vehicula feugiat. Maecenas pulvinar facilisis lectus nec dignissim. Mauris sollicitudin cursus nisl, vitae laoreet velit finibus vel.</p>
+<!--Intro and service-->
+<div id="intro" class="section scrollspy">
+    <div class="container">
+        <div class="row">
+            <div  class="col s12">
+                <h2 class="center header text_h2"> Si te gusta disfrutar de la música has venido al sitio correcto. <span class="span_h2"> Song2Song  </span>
+                te ofrece una experiencia musical, para disfrutar con los amigos o contigo mismo. <span class="span_h2"> ¡Descubreme!</span> </h2>
+            </div>
 
-		<p>Donec fringilla massa vitae euismod porttitor. In placerat efficitur luctus. Quisque tincidunt dolor non ante ullamcorper, ut imperdiet ipsum ultricies. 
-			Cras sed quam dolor. Nam et quam nec magna suscipit fringilla. Fusce suscipit velit neque, eget accumsan risus porttitor non. Phasellus fringilla ante diam. 
-			Donec mattis, leo sit amet tincidunt venenatis, ipsum velit dictum augue, tempus rhoncus neque mi sed sapien. Cras ullamcorper magna diam, posuere vehicula 
-			quam fermentum sed. Donec sapien turpis, sollicitudin ut lorem ut, accumsan condimentum turpis. Aenean iaculis eros justo, a tempor quam malesuada at. 
-			Maecenas convallis dui viverra purus eleifend luctus. Duis in mi id odio fermentum convallis a sed urna. Cras euismod diam vitae dignissim laoreet. 
-			Etiam sagittis, libero laoreet ultrices commodo, arcu sem elementum eros, sit amet dignissim ante libero nec est.</p>
+            <div  class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-image-flash-on"></i>
+                    <h5 class="promo-caption">Speeds up development</h5>
+                    <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-social-group"></i>
+                    <h5 class="promo-caption">User Experience Focused</h5>
+                    <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-hardware-desktop-windows"></i>
+                    <h5 class="promo-caption">Fully responsive</h5>
+                    <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<p>Donec mattis orci massa, vel consectetur tellus tristique ac. Curabitur ut lacus eu enim fringilla cursus eu quis enim. Donec eget viverra lectus. 
-			Vestibulum at pellentesque magna, a bibendum est. Vestibulum ac odio et mauris porta sodales a ut mi. Ut interdum nec ex sit amet interdum. 
-			Nam accumsan rhoncus eleifend. Nullam in libero vulputate, tincidunt diam et, malesuada justo. Pellentesque pretium, tortor ut aliquam dictum, mi ex 
-			vestibulum enim, sed tempor elit tortor non diam. Fusce tempor purus vitae turpis porta, eu viverra arcu sodales.</p>
+<!--Music-->
+<div class="section scrollspy" id="work">
+    <div class="container">
+        <h2 class="header text_b">Work </h2>
+        <div class="row">
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/project1.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="#">Project link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/project2.jpeg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="#">Project link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/project3.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="#">Project link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/project4.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="#">Project link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/project5.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="#">Project link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/project6.jpeg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="#">Project link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<p>Sed interdum tincidunt neque, in accumsan metus dapibus ac. Nam ultrices mi ut quam luctus lobortis. Etiam sit amet ante ipsum. Donec consequat 
-			pharetra pellentesque. Mauris volutpat id lacus a vestibulum. Nulla facilisi. Etiam vitae iaculis massa. Phasellus imperdiet ac justo vel fermentum. 
-			Quisque varius turpis nec egestas dignissim. Phasellus ultrices id augue sed congue. Duis libero justo, sodales ac pharetra eu, fermentum at quam. 
-			Donec hendrerit magna in sodales finibus. Maecenas posuere quis leo nec ullamcorper.</p>
+<!--Parallax-->
+<div class="parallax-container">
+    <div class="parallax"><img src="img/parallax1.png"></div>
+</div>
 
-		<p>Curabitur imperdiet finibus nunc, sit amet aliquet eros tincidunt vitae. Donec vitae urna ut nisi egestas lobortis id vel massa. Mauris lacinia tincidunt 
-		    egestas. Mauris vestibulum metus eu mi tempus, et aliquam eros hendrerit. Donec vestibulum efficitur lacus, id luctus urna pretium sed. Nullam dignissim, 
-			nisi eu pharetra ultrices, mi est tristique mauris, vel mollis lorem neque vitae est. Nunc ante massa, bibendum vitae viverra at, dictum quis risus. 
-			Maecenas sagittis arcu ante, id laoreet purus efficitur et. Vestibulum a laoreet urna, quis imperdiet ante. Cras tincidunt leo in quam molestie feugiat. S
-			uspendisse dignissim, lacus id maximus rutrum, velit erat vestibulum metus, vel imperdiet lorem velit at dui. Nunc sagittis luctus ipsum a mollis. 
-			Curabitur mattis viverra nisl, at bibendum eros mattis non.</p>
+<!--Team-->
+<div class="section scrollspy" id="team">
+    <div class="container">
+        <h2 class="header text_b"> Our Team </h2>
+        <div class="row">
+            <div class="col s12 m3">
+                <div class="card card-avatar">
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/avatar1.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Flash <br/>
+                            <small><em><a class="red-text text-darken-1" href="#">CEO</a></em></small></span>
+                        <p>
+                            <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
+                                <i class="fa fa-twitter-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
+                                <i class="fa fa-google-plus-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
+                                <i class="fa fa-linkedin-square"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card card-avatar">
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/avatar2.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Cat Woman<br/>
+                            <small><em><a class="red-text text-darken-1" href="#">Designer</a></em></small>
+                        </span>
+                        <p>
+                            <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
+                                <i class="fa fa-twitter-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
+                                <i class="fa fa-google-plus-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
+                                <i class="fa fa-linkedin-square"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card card-avatar">
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/avatar3.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            Capt. America <br/>
+                            <small><em><a class="red-text text-darken-1" href="#">CMO</a></em></small></span>
+                        <p>
+                            <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
+                                <i class="fa fa-twitter-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
+                                <i class="fa fa-google-plus-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
+                                <i class="fa fa-linkedin-square"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card card-avatar">
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/avatar4.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Robin<br/>
+                            <small><em><a class="red-text text-darken-1" href="#">Developer</a></em></small></span>
+                        <p>
+                            <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
+                                <i class="fa fa-twitter-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
+                                <i class="fa fa-google-plus-square"></i>
+                            </a>
+                            <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
+                                <i class="fa fa-linkedin-square"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempor in nisi a sollicitudin. 
-			Praesent tincidunt cursus ante sed ultrices. Integer sit amet fermentum velit. Integer consequat diam vitae felis suscipit ultricies. 
-			Ut ut commodo augue, fermentum dapibus arcu. Vestibulum pharetra consectetur porta. Donec tincidunt neque a velit dignissim efficitur. 
-			Mauris in porta augue, in elementum lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-			Vivamus in rutrum ex, eu cursus ligula. Suspendisse potenti. Phasellus volutpat tempor enim, ac feugiat ligula fermentum vitae. Nam 
-			rutrum vehicula feugiat. Maecenas pulvinar facilisis lectus nec dignissim. Mauris sollicitudin cursus nisl, vitae laoreet velit finibus vel.</p>
+<!--Footer-->
+<footer id="contact" class="page-footer default_color scrollspy">
+    <div class="container">  
+        <div class="row">
+            <div class="col l6 s12">
+                <form class="col s12" action="contact.php" method="post">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="mdi-action-account-circle prefix white-text"></i>
+                            <input id="icon_prefix" name="name" type="text" class="validate white-text">
+                            <label for="icon_prefix" class="white-text">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-email prefix white-text"></i>
+                            <input id="icon_email" name="email" type="email" class="validate white-text">
+                            <label for="icon_email" class="white-text">Email-id</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-mode-edit prefix white-text"></i>
+                            <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
+                            <label for="icon_prefix2" class="white-text">Message</label>
+                        </div>
+                        <div class="col offset-s7 s5">
+                            <button class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                                <i class="mdi-content-send right white-text"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">joashpereira.com</h5>
+                <ul>
+                    <li><a class="white-text" href="http://www.joashpereira.com/">Home</a></li>
+                    <li><a class="white-text" href="http://www.joashpereira.com/blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Social</h5>
+                <ul>
+                    <li>
+                        <a class="white-text" href="https://www.behance.net/joashp">
+                            <i class="small fa fa-behance-square white-text"></i> Behance
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.facebook.com/joash.c.pereira">
+                            <i class="small fa fa-facebook-square white-text"></i> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://github.com/joashp">
+                            <i class="small fa fa-github-square white-text"></i> Github
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.linkedin.com/in/joashp">
+                            <i class="small fa fa-linkedin-square white-text"></i> Linkedin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright default_color">
+        <div class="container">
+            Made by <a class="white-text" href="http://joashpereira.com">Joash Pereira</a>. Thanks to <a class="white-text" href="http://materializecss.com/">materializecss</a>
+        </div>
+    </div>
+</footer>
 
-		<p>Donec fringilla massa vitae euismod porttitor. In placerat efficitur luctus. Quisque tincidunt dolor non ante ullamcorper, ut imperdiet ipsum ultricies. 
-			Cras sed quam dolor. Nam et quam nec magna suscipit fringilla. Fusce suscipit velit neque, eget accumsan risus porttitor non. Phasellus fringilla ante diam. 
-			Donec mattis, leo sit amet tincidunt venenatis, ipsum velit dictum augue, tempus rhoncus neque mi sed sapien. Cras ullamcorper magna diam, posuere vehicula 
-			quam fermentum sed. Donec sapien turpis, sollicitudin ut lorem ut, accumsan condimentum turpis. Aenean iaculis eros justo, a tempor quam malesuada at. 
-			Maecenas convallis dui viverra purus eleifend luctus. Duis in mi id odio fermentum convallis a sed urna. Cras euismod diam vitae dignissim laoreet. 
-			Etiam sagittis, libero laoreet ultrices commodo, arcu sem elementum eros, sit amet dignissim ante libero nec est.</p>
 
-		<p>Donec mattis orci massa, vel consectetur tellus tristique ac. Curabitur ut lacus eu enim fringilla cursus eu quis enim. Donec eget viverra lectus. 
-			Vestibulum at pellentesque magna, a bibendum est. Vestibulum ac odio et mauris porta sodales a ut mi. Ut interdum nec ex sit amet interdum. 
-			Nam accumsan rhoncus eleifend. Nullam in libero vulputate, tincidunt diam et, malesuada justo. Pellentesque pretium, tortor ut aliquam dictum, mi ex 
-			vestibulum enim, sed tempor elit tortor non diam. Fusce tempor purus vitae turpis porta, eu viverra arcu sodales.</p>
+    <!--  Scripts-->
+    <script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
 
-		<p>Sed interdum tincidunt neque, in accumsan metus dapibus ac. Nam ultrices mi ut quam luctus lobortis. Etiam sit amet ante ipsum. Donec consequat 
-			pharetra pellentesque. Mauris volutpat id lacus a vestibulum. Nulla facilisi. Etiam vitae iaculis massa. Phasellus imperdiet ac justo vel fermentum. 
-			Quisque varius turpis nec egestas dignissim. Phasellus ultrices id augue sed congue. Duis libero justo, sodales ac pharetra eu, fermentum at quam. 
-			Donec hendrerit magna in sodales finibus. Maecenas posuere quis leo nec ullamcorper.</p>
-
-		<p>Curabitur imperdiet finibus nunc, sit amet aliquet eros tincidunt vitae. Donec vitae urna ut nisi egestas lobortis id vel massa. Mauris lacinia tincidunt 
-		    egestas. Mauris vestibulum metus eu mi tempus, et aliquam eros hendrerit. Donec vestibulum efficitur lacus, id luctus urna pretium sed. Nullam dignissim, 
-			nisi eu pharetra ultrices, mi est tristique mauris, vel mollis lorem neque vitae est. Nunc ante massa, bibendum vitae viverra at, dictum quis risus. 
-			Maecenas sagittis arcu ante, id laoreet purus efficitur et. Vestibulum a laoreet urna, quis imperdiet ante. Cras tincidunt leo in quam molestie feugiat. S
-			uspendisse dignissim, lacus id maximus rutrum, velit erat vestibulum metus, vel imperdiet lorem velit at dui. Nunc sagittis luctus ipsum a mollis. 
-			Curabitur mattis viverra nisl, at bibendum eros mattis non.</p>
-	</div>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body>
+    </body>
 </html>
