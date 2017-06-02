@@ -85,7 +85,22 @@ class User extends BaseEntity {
     public function findUser($nick) {
         $list = $this->getBy("nick", $nick);
 
-        return $list[0];
+        If (empty($list)){
+            return false;
+        } else {
+            return $list[0];
+        }
+    }
+
+    public function newUser($nick, $email) {
+        $list = $this->checkValues("nick", $nick, "email", $email);
+
+        If ($list == null){
+            return null;
+        } else {
+            return $list[0];
+        }
+        
     }
  
 }

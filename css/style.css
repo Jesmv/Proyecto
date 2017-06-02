@@ -20,7 +20,7 @@
     min-height: 632px;
     max-height: 864px;
     position: relative;
-    background-image: url(../img/1.jpg);
+    background-image: url(../img/10.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -66,10 +66,6 @@ nav .brand-logo{
 .card-content a:hover {color: #EF0897;}
 
 #music, #team{background: rgb(247, 247, 247);}
-
-#logIn{
-    color: #EF0897;
-}
 
 .text_pink{color:#EF9A9A;}
 
@@ -274,13 +270,19 @@ footer.page-footer {
     border-bottom: 1px solid #ad1457;
     box-shadow: 0 1px 0 0 #ad1457;
     background-color: black;
-    color: #ad1457
+    
 }
 
-#logIn, form, #sendUser {
+#logIn, #sendUser, #newUser {
     background-color: black;
+    color: #EF0897;
 }
 
 .input-field label {
     color: #ad1457;
+}
+
+#userSpan, #emailSpan, #pasSpan, #pas2Span {
+    display: none;
+    color: red;
 }

@@ -1,6 +1,9 @@
 <?php
 //FUNCIONES PARA EL CONTROLADOR FRONTAL
- 
+
+const CONTROLADOR_DEFECTO = 'Error';
+const ACCION_DEFECTO = 'viewError';
+
 function cargarControlador($controller){
     $controlador=ucwords($controller).'Controller';
     $strFileController='controller/'.$controlador.'.php';

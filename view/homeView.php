@@ -37,7 +37,7 @@
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="#intro">Service</a></li>
-                    <li><a href="logIn">Log In</a></li>
+                    <li><a href="#logIn">Log In</a></li>
                     <li><a href="#newUser">New User</a></li>
                     <li><a href="#music">Music</a></li>      
                     <li><a href="#contact">Contact</a></li> 
@@ -175,7 +175,7 @@
 
 <!--Parallax-->
 <div class="parallax-container">
-    <div class="parallax"><img src="img/parallax1.png"></div>
+    <div class="parallax"><img src="img/notas.png"></div>
 </div>
 
 <!--Team-->
@@ -377,9 +377,13 @@
           <div class="modal-footer" id="sendUser">
             <input class="btn waves-effect waves-light" type="submit" name="send" id="send">
           </div>
+        </div>
       </form>
     </div>
   </div>
+
+
+
 
     <!--  Scripts-->
     <script src="js/jquery-2.1.1.min.js"></script>

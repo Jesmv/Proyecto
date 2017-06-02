@@ -63,5 +63,17 @@
     }
 
     //Más métodos para hacer operaciones con la bd.
+
+	public function checkValues($column1, $value1, $column2, $value2){
+		$query=$this->db->query("SELECT * FROM $this->table WHERE $column1='$value1' or $column2='$value2'");
+		
+		$resultSet=[];
+
+        while($row = $query->fetch_object()) {
+           $resultSet[]=$row;
+        }
+         
+        return $resultSet;
+	}
 	}
  ?>
