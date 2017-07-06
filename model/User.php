@@ -8,7 +8,8 @@ class User extends BaseEntity {
     private $password;
     private $nick;
     private $type;
-     
+    private $image; 
+    
     public function __construct() {
         $table="user";
         parent::__construct($table);
@@ -26,7 +27,7 @@ class User extends BaseEntity {
         return $this->name;
     }
  
-    public function setNombre($name) {
+    public function setName($name) {
         $this->name = $name;
     }
  
@@ -58,7 +59,7 @@ class User extends BaseEntity {
         return $this->nick;
     }
  
-    public function setNick($password) {
+    public function setNick($nick) {
         $this->nick = $nick;
     }
 
@@ -69,17 +70,77 @@ class User extends BaseEntity {
     public function setType($type) {
         $this->type = $type;
     }
+
+    public function getImage() {
+        return $this->image;
+    }
  
+    public function setImage($image) {
+        $this->image = $image;
+    }
+    
     public function save(){
-        $query="INSERT INTO usuarios (name,surname,email,password,type,nick)
+        $query="INSERT INTO user (name,surname,email,password,type,nick,image)
                 VALUES('".$this->name."',
                        '".$this->surname."',
                        '".$this->email."',
                        '".$this->password."',
                        '".$this->type."',
-                       '".$this->nick."');";
+                       '".$this->nick."',
+                       '".$this->image."');";
         $save=$this->db()->query($query);
         return $save;
+    }
+
+    public function saveProfile($name, $surname, $email, $nick, $image){
+        $this->setName($name);
+        $this->setSurname($surname);
+        $this->setEmail($email);
+        $this->setNick($nick);
+        $this->setImage($image);
+
+        $query="UPDATE user set 
+                (surname='".$this->email."',
+                email='".$this->email."')
+
+                WHERE nick = '".$this->nick."'";
+
+        $save=$this->db()->query($query);
+
+        if ($save) {
+            return $this;
+        } else {
+            return false;
+        }
+    }
+
+    public function saveNewUser($email, $nick, $password){
+        $this->setEmail($email);
+        $this->setNick($nick);
+        $this->setPassword($password);
+
+        $query="INSERT INTO user (email, password, nick)
+                VALUES('".$this->email."',
+                       '".$this->password."',
+                       '".$this->nick."');";
+        $save=$this->db()->query($query);
+
+        if ($save) {
+            $list = $this->getBy("nick", $nick);
+
+            $this->setName($list[0]->name);
+            $this->setSurname($list[0]->surname);
+            $this->setNick($list[0]->nick);
+            $this->setEmail($list[0]->email);
+            $this->setPassword($list[0]->password);
+            $this->setImage($list[0]->image);
+            $this->setType($list[0]->type);
+
+            return $this;
+        } else {
+            return false;
+        }
+        
     }
 
     public function findUser($nick) {
@@ -102,6 +163,8 @@ class User extends BaseEntity {
         }
         
     }
+
+
  
 }
 ?>

@@ -31,14 +31,14 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#intro">Service</a></li>
                     <li><a href="#logIn">Log In</a></li>
-                    <li><a href="#newUser">New User</a></li>
+                    <li><a href="index.php?controller=User&action=newUser">New User</a></li>
                     <li><a href="#music">Music</a></li>      
                     <li><a href="#contact">Contact</a></li>     
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="#intro">Service</a></li>
                     <li><a href="#logIn">Log In</a></li>
-                    <li><a href="#newUser">New User</a></li>
+                    <li><a href="#index.php?controller=User&action=newUser">New User</a></li>
                     <li><a href="#music">Music</a></li>      
                     <li><a href="#contact">Contact</a></li> 
                 </ul>

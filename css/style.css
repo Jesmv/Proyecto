@@ -286,3 +286,14 @@ footer.page-footer {
     display: none;
     color: red;
 }
+
+#unete {
+    margin-bottom: 3%;
+    margin-top: 2%;
+}
+
+#foto {
+    background-image: url("img/11.jpg");
+    background-repeat: no-repeat;
+    background: 100%;
+}

@@ -31,7 +31,7 @@ $(function() {
 		}
 	});
 
-	$('#password').blur(() => {
+	/*$('#password').blur(() => {
 
 		var value = $('#password').val();
 
@@ -44,7 +44,7 @@ $(function() {
 
 			$('#pasSpan').css({'display':'inherit'});
 		}
-	});
+	});*/
 
 	$('#password2').blur(() => {
 

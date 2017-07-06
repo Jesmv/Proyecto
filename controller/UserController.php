@@ -8,7 +8,7 @@ class UserController extends ControladorBase {
         
         $user = $model->findUser($_POST['user_Name']);
 
-        if ($user->password === $_POST['user_Password']) {
+        if ($user->password === md5($_POST['user_Password'])) {
             // usuario logueado
             $_SESSION['sesionIniciada'] =true;
             $_SESSION['user'] = $user;
@@ -22,11 +22,15 @@ class UserController extends ControladorBase {
     public function newUser() {
         if (isset($_SESSION['errorRegistro']) && $_SESSION['errorRegistro']) {
             $error = true;
+            // hay que borrar el error de registro
+            // ya que solo aplica una vez.
+            $_SESSION['errorRegistro'] = False;
         } else {
             $error = false;
         }
 
-        $this->view('newuser', [ 'errorRegister' =>  $error ]);
+        $this->view('newuser', [ 
+            'errorRegister' =>  $error ]);
 
     }
 
@@ -38,9 +42,18 @@ class UserController extends ControladorBase {
 
         if ($userExist === null) {
             $_SESSION['sesionIniciada'] =true;
+
+            $user = $model->saveNewUser($_POST['email'], $_POST['user'], md5($_POST['password']));
+
+            if ($user){
+                $_SESSION['user'] = $user;
+                header ("Location: index.php?controller=homeuser&action=viewPage");
+            } else {
+                $_SESSION['errorRegistro'] = true;           
+                header ("Location: index.php?controller=User&action=newuser");
+            }
             
-            header ("Location: index.php?controller=homeuser&action=viewPage");
-            //$_SESSION['user'] = $user;
+            
         } else {
             $_SESSION['errorRegistro'] = true;           
             header ("Location: index.php?controller=User&action=newuser");
