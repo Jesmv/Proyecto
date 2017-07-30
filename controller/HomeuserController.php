@@ -1,9 +1,13 @@
 <?php
 
+
+/*
+Controlador para la pagina principal de usuario
+cuando ya ha hecho login
+*/
 class HomeuserController extends ControladorBase {
 
-
-    public function viewPage() {
+    public function viewHome() {
 
         $usermodel = new User();
 

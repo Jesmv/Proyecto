@@ -1,46 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Song to Song</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#EF0897">
+    <title>Material UI One Page Theme</title>
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="estilos.css">
-	
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
-<body>
+<body id="top" class="scrollspy">
+
+	<!-- Pre Loader -->
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+	
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	
+	</div>
+
+	<!--Navigation-->
+	<div class="navbar-fixed">
+		<nav id="nav_f" class="default_color" role="navigation">
+			<div class="container">
+				<div class="nav-wrapper">
+				<a href="#" id="logo-container" class="brand-logo">Song2Song</a>
+					<ul class="right hide-on-med-and-down">
+						<li><a href="#intro">Service</a></li>
+						<li><a href="#logIn">Log In</a></li>
+						<li><a href="index.php?controller=User&action=newUser">New User</a></li>
+						<li><a href="#music">Music</a></li>      
+						<li><a href="#contact">Contact</a></li>     
+					</ul>
+					<ul id="nav-mobile" class="side-nav">
+						<li><a href="#intro">Service</a></li>
+						<li><a href="#logIn">Log In</a></li>
+						<li><a href="#index.php?controller=User&action=newUser">New User</a></li>
+						<li><a href="#music">Music</a></li>      
+						<li><a href="#contact">Contact</a></li> 
+					</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+				</div>
+			</div>
+		</nav>
+	</div>
 
 
 	<div class="container">
-		<form>
-			<h1>Buscar musica</h1>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="input-group">
-						<input type="text"  autocomplete="off" class="form-control typeahead" >
-						<span class="input-group-btn">
-							<input type="submit" class="btn btn-default" type="button">Go!</input>
-						</span>
-					</div><!-- /input-group -->
-				</div><!-- /.col-lg-6 -->
-			</div><!-- /.row -->
-		</form>
+
+		<h1>Buscar musica</h1>
+
+		<div class="input-field col s12">
+			<input type="text" id="buscador" class="autocomplete">
+			<label for="buscador">Autocomplete</label>
+		</div>
+
+		<br>
+		<br>
+
+
+		<div id="result" class="row hide">
+			<div class="col s12 m7">
+			<div class="card">
+				<div class="card-image">
+					<img src="">
+					<span class="card-title"></span>
+				</div>
+				<div class="card-content"></div>
+				<div class="card-action">
+				<button id="play" >Reproducir</button>
+				<a  href="#">Accion 2</a>
+				<a  href="#">Accion 3</a>
+				</div>
+			</div>
+			</div>
+      	</div>
+
 
 		<audio id="player" controls>
 			<source src="" type="audio/mpeg">
 		</audio>
-		
-
 	</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src="js/bootstrap3-typeahead.min.js"></script>
-	<script src="js/main.js"></script>
+	<!--  Scripts-->
+    <script src="js/jquery-2.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+	<script src="js/typeahead.bundle.min.js"></script>
+    <script src="js/buscador.js"></script>
 
 </body>
 </html>
