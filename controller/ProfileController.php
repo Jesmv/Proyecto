@@ -19,7 +19,7 @@ class ProfileController extends ControladorBase {
 
         if ($user){
             $_SESSION['user'] = $user;
-            header ("Location: index.php?controller=homeuser&action=viewPage");
+            header ("Location: index.php?controller=Homeuser&action=viewPage");
         } else {          
             header ("Location: index.php?controller=User&action=newuser");
         }
