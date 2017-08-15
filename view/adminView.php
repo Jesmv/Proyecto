@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
-<body id="top" class="scrollspy">
+<body id="top" class="scrollspy fondo">
 
 	<!-- Pre Loader -->
 	<div id="loader-wrapper">
@@ -45,7 +45,7 @@
 		</nav>
 	</div>
 
-	<div class="container">
+	<div class="container" id="fondo">
         <h1>Administrador</h1>
         <div class="row">
             <div class="col s12 m4">

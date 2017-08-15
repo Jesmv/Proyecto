@@ -9,7 +9,8 @@
     <!-- CSS  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body id="top" class="scrollspy">
@@ -45,26 +46,29 @@
 		</nav>
 	</div>
 
-    <div class="container">
-        
-    
-    <div class="row">
-        <div class="col s12">
-            <h2 class="header">Gestionar Usuarios</h2>
+    <div class="container">    
+        <div class="row">
+            <div class="col s12">
+                <h2 class="header">Gestionar Usuarios</h2>
+            </div>
+
+            <ul class="collection">
+
+            <?php foreach ($usuarios as $key => $value) { ?>
+
+                <li class="collection-item avatar">
+                    <img src="<?php echo $value->image ?>" alt="" class="circle">
+                    <span class="title"><?php echo $value->type ?></span>
+                    <p><?php echo $value->nick ?> <br>
+                        <?php echo $value->name." ".$value->surname ?>
+                    </p>
+                    <a href="index.php?controller=Admin&action=deleteAdminUser&id=<?php echo $value->id ?>" class="secondary-content"><i class="material-icons">Eliminar</i></a>
+                    <a href="index.php?controller=Admin&action=deleteAdminUser&id=<?php echo $value->id ?>" class="secondary-content"><i class="material-icons">Admin</i></a>
+                </li>
+
+            <?php } ?>
+            </ul>
         </div>
-
-        <ul class="collection">
-
-            <li class="collection-item avatar">
-            <img src="https://source.unsplash.com/1600x900/?person" alt="" class="circle">
-            <span class="title">Title</span>
-            <p>First Line <br>
-                Second Line
-            </p>
-            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-        </ul>
-    </div>
     </div>    
 		
 	</div>

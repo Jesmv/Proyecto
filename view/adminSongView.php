@@ -31,7 +31,7 @@
 				<a href="#" id="logo-container" class="brand-logo">Song2Song</a>
 					<ul class="right hide-on-med-and-down">
 						<li><a href="index.php?controller=Admin&action=viewAdmin">Admin</a></li>
-						<li><a href="index.php?controller=Admin&action=viewAdmin">Usuarios</a></li>      
+						<li><a href="index.php?controller=Admin&action=viewAdminUsers">Usuarios</a></li>      
 						<li><a href="index.php?controller=Admin&action=viewAdminMessage">Message</a></li>      
 					</ul>
 					<ul id="nav-mobile" class="side-nav">

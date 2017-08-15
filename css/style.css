@@ -297,3 +297,7 @@ footer.page-footer {
     background-repeat: no-repeat;
     background: 100%;
 }
+
+#fondo {
+    background-color: rgb(247, 247, 247)!;
+}
