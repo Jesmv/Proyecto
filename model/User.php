@@ -137,31 +137,35 @@ class User extends BaseEntity {
         $save=$this->db()->query($query);
 
         if ($save) {
-            $list = $this->getBy("nick", $nick);
-
-            $this->setName($list[0]->name);
-            $this->setSurname($list[0]->surname);
-            $this->setNick($list[0]->nick);
-            $this->setEmail($list[0]->email);
-            $this->setPassword($list[0]->password);
-            $this->setImage($list[0]->image);
-            $this->setType($list[0]->type);
-
-            return $this;
+            return $this->findUser($nick);
         } else {
             return false;
         }
-        
     }
 
     public function findUser($nick) {
         $list = $this->getBy("nick", $nick);
-
         If (empty($list)){
             return false;
         } else {
-            return $list[0];
+            $row = $list[0];
+            return $this->createUser($row);
         }
+    }
+
+    public function createUser($row) {
+        // crea un objeto User con los datos sacados de la base de datos
+        // Este es el tipo de objecto que se guarda en la sesion
+        $user = new User();
+        $user->setId($row->id);
+        $user->setName($row->name);
+        $user->setSurname($row->surname);
+        $user->setNick($row->nick);
+        $user->setEmail($row->email);
+        $user->setPassword($row->password);
+        $user->setImage($row->image);
+        $user->setType($row->type);
+        return $user;
     }
 
     public function newUser($nick, $email) {
@@ -172,7 +176,6 @@ class User extends BaseEntity {
         } else {
             return $list[0];
         }
-        
     }
 
     /*Guarda la imagen en una carpeta. Primero comprueba que el campo no esté vacio. Lo hago comprobando si es el error 4, que indica que se encuentra vacio el input del file, si es así me devuelve true, ya que considero que se puede tener vacio porque no se quiera cambiar la imagen.. */

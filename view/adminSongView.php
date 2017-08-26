@@ -68,7 +68,7 @@
 				<li>
 					<div class="collapsible-header">Añadir canción</div>
 					<div class="collapsible-body">
-						<form>
+						<form  method="post" action="<?php echo $helper->url('Admin', 'addAdminSong') ?>" enctype="multipart/form-data">
 							<div class="row">
 								<div class="input-field col s6">
 									<input name="titulo" id="titulo" type="text" value="" require/> 
@@ -91,18 +91,33 @@
 							</div>
 							<div class="row">
 								<div class="input-field col s6">
-									<input type="year" value="2017" min="1900" max="2018">
+									<input id="year" name="year" type="text" value="2017" min="1900" max="2018">
 									<label for="year">Year</label>
+								</div>
+								<div class="input-field col s6">
+									<input id="tags" type="text" name="tags">
+									<label for="tags">Etiquetas (separadas por comas)</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s6">
+									<input id="imageurl" type="text" name="imageurl">
+									<label for="imageurl">Url de la imagen</label>
 								</div>
 								<div class="file-field input-field col s6">
 									<div class="btn">
-										<span>File</span>
-										<input type="file" name="imagen"/>
+										<span>Canción</span>
+										<input type="file" name="song"/>
 									</div>
 									<div class="file-path-wrapper">
-										<input class="file-path validate" id="file" type="text"/>
+										<input class="file-path validate" id="song" type="text"/>
 									</div>
 								</div>
+							</div>
+							<div class="row">
+								<button class="btn waves-effect waves-light" type="submit" name="action">
+									Guardar
+								</button>
 							</div>
 						</form>
 					</div>

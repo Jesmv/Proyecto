@@ -6,8 +6,7 @@ cuando ya ha hecho login
 class AdminController extends ControladorBase {
 
     public function viewAdmin() {
-
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
             $datos = [];
             $this->view('admin', $datos);
         } else {
@@ -19,8 +18,7 @@ class AdminController extends ControladorBase {
 
     public function viewAdminSongs() {
 
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
-
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
             $modelo = new Song();
             $songs = $modelo->getAll();
             $datos = [
@@ -35,7 +33,7 @@ class AdminController extends ControladorBase {
 
     public function viewAdminUsers() {
 
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
             
             $modelo = new User();
             $users = $modelo->getAll();
@@ -50,7 +48,7 @@ class AdminController extends ControladorBase {
     }
 
     public function deleteAdminUser() {
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
 
             $modelo = new User();
             $user = $modelo->deleteById($_GET['id']);
@@ -63,7 +61,7 @@ class AdminController extends ControladorBase {
     }
 
     public function changeAdminUser() {
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
 
             $modelo = new User();
             $user = $modelo->updateValues($_GET['id'], '');
@@ -76,29 +74,15 @@ class AdminController extends ControladorBase {
     }
 
     public function addAdminSong() {
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
-
-            $modelo = new Song();
-            $songExist = $model->newSong($_POST['user'], $_POST['email']);
-
-            if ($songExist === null) {
-                $_SESSION['sesionIniciada'] =true;
-
-                $user = $model->saveNewUser($_POST['email'], $_POST['user'], md5($_POST['password']));
-
-                if ($user){
-                    $_SESSION['user'] = $user;
-                    header ("Location: index.php?controller=homeuser&action=viewPage");
-                } else {
-                    $_SESSION['errorRegistro'] = true;           
-                    header ("Location: index.php?controller=User&action=newuser");
-                }
-                
-                
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+            $model = new Song();
+            $songExist = $model->findSong($_POST['autor'], $_POST['titulo']);
+            if (!$songExist) {
+                $model->saveNewSong($_POST['autor'], $_POST['titulo'], $_POST['grupo'], $_POST['album'], $_POST['year'], $_POST['tags'], $_POST['imageurl']);
             } else {
-                $_SESSION['errorRegistro'] = true;           
-                header ("Location: index.php?controller=User&action=newuser");
+                echo "<script> alert('Ya existe esta canción') </script>";
             }
+            $this->viewAdminSongs();
         } else {
             echo 'No autorizado';
         }

@@ -8,7 +8,7 @@ class UserController extends ControladorBase {
         
         $user = $model->findUser($_POST['user_Name']);
 
-        if ($user->password === md5($_POST['user_Password'])) {
+        if ($user->getPassword() === md5($_POST['user_Password'])) {
             // usuario logueado
             $_SESSION['sesionIniciada'] =true;
             $_SESSION['user'] = $user;

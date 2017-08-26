@@ -27,12 +27,12 @@
                 <div class="nav-wrapper">
                     <a href="#" id="logo-container" class="brand-logo">Song2Song</a>
                         <ul class="right hide-on-med-and-down">
-                            <li><a href="#intro">Home</a></li>
+                            <li><a href="index.php?controller=Homeuser&action=viewHome">Home</a></li>
                             <li><a href="index.php?controller=User&action=exit">Salir</a></li>      
                             <li><a href="#contact">Contact</a></li>     
                         </ul>
                         <ul id="nav-mobile" class="side-nav">
-                            <li><a href="#intro">Home</a></li>
+                            <li><a href="index.php?controller=Homeuser&action=viewHome">Home</a></li>
                             <li><a href="index.php?controller=User&action=exit">Salir</a></li>      
                             <li><a href="#contact">Contact</a></li>  
                         </ul>
@@ -49,18 +49,18 @@
                 <h4 class="text-center">Editar Perfil</h4>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input name="nick" id="user" type="text" value="<?php echo $user->nick ?>" readonly/>                   
+                        <input name="nick" id="user" type="text" value="<?php echo $user->getNick() ?>" readonly/>                   
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="nameUser" name="name" type="text" value="<?php echo $user->name ?>" />
+                        <input id="nameUser" name="name" type="text" value="<?php echo $user->getName() ?>" />
                         <label for="name">Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="surnameUser" name="surname" type="text" value="<?php echo $user->surname ?>" />
+                        <input id="surnameUser" name="surname" type="text" value="<?php echo $user->getSurname() ?>" />
                         <label for="surname">Apellidos</label>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" name="email" value="<?php echo $user->email ?>" required/>
+                        <input id="email" type="email" name="email" value="<?php echo $user->getEmail() ?>" required/>
                         <label for="email">Email</label>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
             </form>
         </div>
         <div class="row col push-s2 s3">
-            <img src="<?php echo $user->image ?>" alt="Avatar" class=" circle responsive-img" with="200px" height="200px">
+            <img src="<?php echo $user->getImage() ?>" alt="Avatar" class=" circle responsive-img" with="200px" height="200px">
         </div>  
         <form class="col s5 offset-m2" method="post" action="" ENCTYPE="multipart/form-data">
             <h4 class="text-center">Cambiar Contraseña</h4>

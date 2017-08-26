@@ -10,10 +10,12 @@ class HomeuserController extends ControladorBase {
     public function viewHome() {
 
         $usermodel = new User();
+        $likesModel = new Likes();
 
         $datos = [
             'title' => 'User list',
             'user' => $usermodel->getById(1),
+            'likes' => $likesModel->findUserLikes($_SESSION['user']->getId()),
             'date' => date("l")
         ];
 
@@ -25,6 +27,17 @@ class HomeuserController extends ControladorBase {
         $songModel = new Song();
         header('Content-Type: application/json; charset=UTF-8');
         echo json_encode($songModel->getAll());
+    }
+
+    public function ajaxLikeSong() {
+        $likesModel = new Likes();
+        $userid = $_SESSION['user']->getId();
+        $songid = $_GET['id'];
+
+        $likesModel->saveNewLike($userid, $songid);
+
+        header('Content-Type: application/json; charset=UTF-8');
+        echo json_encode([]);
     }
 
 

@@ -36,6 +36,22 @@ class Song extends BaseEntity {
         $this->author = $author;
     }
 
+    public function getGroup() {
+        return $this->group;
+    }
+ 
+    public function setGroup($group) {
+        $this->group = $group;
+    }
+
+    public function getYear() {
+        return $this->year;
+    }
+ 
+    public function setYear($year) {
+        $this->year = $year;
+    }
+
     public function getFile() {
         return $this->file;
     }
@@ -43,18 +59,117 @@ class Song extends BaseEntity {
     public function setFile($file) {
         $this->file = $file;
     }
+
+    public function getImage() {
+        return $this->image;
+    }
  
-    /*public function save(){
-        $query="INSERT INTO usuarios (name,surname,email,password,type,nick)
-                VALUES('".$this->name."',
-                       '".$this->surname."',
-                       '".$this->email."',
-                       '".$this->password."',
-                       '".$this->type."',
-                       '".$this->nick."');";
+    public function setImage($image) {
+        $this->image = $image;
+    }
+
+    public function saveNewSong($author, $title, $group, $album, $year, $tags, $imageurl) {
+        // guardar el archivo de la cancion
+        $filename = $this->saveFile();
+
+        // si no se ha podido subir el fichero de la cancion no se hace nada mas
+        if(!$filename) {
+            echo "<script> alert('No se ha podido subir el fichero de la canción') </script>";
+            return false;
+        }
+
+        // guardar la cancion
+        $query="INSERT INTO song (`author`, `title`, `group`, `album`, `year`, `file`, `image`)
+                VALUES('".$author."',
+                       '".$title."',
+                       '".$group."',
+                       '".$album."',
+                       '".$year."',
+                       '".$filename."',
+                       '".$imageurl."');";
         $save=$this->db()->query($query);
-        return $save;
-    }*/
+
+        if ($save) {
+            $song = $this->findSong($author, $title);
+
+            // ahora sacamos los tags
+            $tagArray = explode(',', $tags);
+            $tagModel = new Tag();
+            foreach ($tagArray as $tag) {
+
+                // buscar o guardar cada tag en bd
+                $tagBD = $tagModel->findTag($tag);
+                if(!$tagBD){
+                    $tagBD = $tagModel->saveNewTag($tag);
+                }
+
+                // por cada tag guardamos la relacion con la song
+                $query="INSERT INTO songtags (idsong, idtag)
+                        VALUES('".$song->getId()."',
+                            '".$tagBD->getId()."');";
+                $this->db()->query($query);
+            }
+            return $song;
+        } else {
+            echo "<script> alert('No se ha podido guardar la cancion') </script>";
+            return false;
+        }
+        
+    }
+
+    public function findSong($author, $title) {
+        $query=$this->db()->query("SELECT * FROM song WHERE title='$title' and author='$author'");
+        $row = $query->fetch_object();
+        If (empty($row)){
+            return false;
+        } else {
+            return $this->createSong($row);
+        }
+    }
+
+    public function createSong($row) {
+        // crea un objeto Song con los datos sacados de la base de datos
+        $song = new Song();
+        $song->setId($row->id);
+        $song->setTitle($row->title);
+        $song->setAuthor($row->author);
+        $song->setGroup($row->group);
+        $song->setYear($row->year);
+        $song->setFile($row->file);
+        $song->setImage($row->image);
+        return $song;
+    }
+
+    /*Guarda la cancion en una carpeta. Primero comprueba que el campo no esté vacio. Lo hago comprobando si es el error 4, que indica que se encuentra vacio el input del file, si es así me devuelve true, ya que considero que se puede tener vacio porque no se quiera cambiar la imagen.. */
+	private function saveFile() {
+		if ($_FILES['song']['error']==4) {
+			return $this->getFile();
+		} else {
+			/*En este if else se comprueba que la cancion se ha subido. Si es correcto creamos una variable */
+			if (is_uploaded_file ($_FILES['song']['tmp_name'] )) {
+				$fileName = $_FILES['song']['name'];
+				$directoryName = "songs/";
+				$finalName = $directoryName.$fileName;
+				
+				/*En el caso de que no tuviesemos permisos no nos dejaria subir la cancion y nos mostraría un error, en el caso de que todo fuese correcto, la imagen se guardaría en la carpeta de imágenes y se guarda en una sesión llamada nuevo Avatar para despues guardar la dirección en la base de datos.*/
+				if (is_dir($directoryName)){ 
+					$timeName = time();
+					$fileName = $timeName."-".$fileName;
+					$finalName = $directoryName.$fileName;
+					move_uploaded_file ($_FILES['song']['tmp_name'],$finalName);
+					return $finalName;
+				} else {
+					echo "<script> alert('Error al cargar la cancion') </script>";
+					return false;
+				}
+				
+			} else {
+				echo "<script> alert('Error al cargar la cancion.') </script>";
+				return false;
+			}
+		}	
+
+	}
  
 }
 ?>

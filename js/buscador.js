@@ -12,8 +12,6 @@ $(function() {
         var files = {};
         var songNames = {};
 
-        debugger;
-
 		for(var i=0; i < songs.length; i++) {
             var songText = songs[i].author + ' - ' + songs[i].title;
             songNames[songText] = 'https://source.unsplash.com/random';
@@ -42,9 +40,11 @@ $(function() {
 
 
     function showResult(song) {
+        console.log(song);
         $('#result .card-title').text(song.author);
         $('#result .card-content').text(song.title);
-        $('#result img').attr('src', 'https://source.unsplash.com/random');
+        $('#result img').attr('src', song.image);
+        $('#result').attr('data-songid', song.id);
         $('#result').removeClass('hide');
     }
 
@@ -52,5 +52,16 @@ $(function() {
         $('#player').attr('src', song.file);
         $('#player')[0].play();
     }
+
+
+
+
+    // Para gestionar los likes
+
+    $('#like').click(function() {
+        var songId = $('#result').attr('data-songid');
+        $.get( "?controller=Homeuser&action=ajaxLikeSong&id=" + songId, function() {});
+        return false;
+    });
 
 });

@@ -30,18 +30,15 @@
 				<div class="nav-wrapper">
 				<a href="#" id="logo-container" class="brand-logo">Song2Song</a>
 					<ul class="right hide-on-med-and-down">
-						<li><a href="#intro">Service</a></li>
-						<li><a href="#logIn">Log In</a></li>
-						<li><a href="index.php?controller=User&action=newUser">New User</a></li>
-						<li><a href="#music">Music</a></li>      
-						<li><a href="#contact">Contact</a></li>     
+						<li><a href="#music">Música</a></li> 
+						<li><a href="index.php?controller=Profile&action=profile">Perfil</a></li>
+						<li><a href="index.php?controller=User&action=exit">Salir</a></li>    
+						        
 					</ul>
 					<ul id="nav-mobile" class="side-nav">
-						<li><a href="#intro">Service</a></li>
-						<li><a href="#logIn">Log In</a></li>
-						<li><a href="#index.php?controller=User&action=newUser">New User</a></li>
-						<li><a href="#music">Music</a></li>      
-						<li><a href="#contact">Contact</a></li> 
+						<li><a href="#music">Música</a></li> 
+						<li><a href="index.php?controller=Profile&action=profile">Perfil</a></li>
+						<li><a href="index.php?controller=User&action=exit">Salir</a></li>       
 					</ul>
 				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 				</div>
@@ -64,26 +61,34 @@
 
 
 		<div id="result" class="row hide">
-			<div class="col s12 m7">
-			<div class="card">
-				<div class="card-image">
-					<img src="">
-					<span class="card-title"></span>
+			<div class="col s6 m7">
+				<div class="card">
+					<div class="card-image">
+						<img src="">
+						<span class="card-title"></span>
+					</div>
+					<div class="card-content"></div>
+						<div class="card-action">
+							<button id="play" >Reproducir</button>
+							<a id="like" href="#">Like</a>
+							<audio id="player" controls>
+								<source src="" type="audio/mpeg">
+							</audio>
+					</div>
 				</div>
-				<div class="card-content"></div>
-				<div class="card-action">
-				<button id="play" >Reproducir</button>
-				<a  href="#">Accion 2</a>
-				<a  href="#">Accion 3</a>
-				</div>
-			</div>
 			</div>
       	</div>
 
+		Ultimos likes
+		<div class="col s6 m7">
+			<ul>
+				<?php foreach ($likes as $song) { ?>
+					<li><?php echo $song->author . ' - ' . $song->title ?></li>
+				<?php } ?>
+			</ul>
 
-		<audio id="player" controls>
-			<source src="" type="audio/mpeg">
-		</audio>
+		</div>
+
 	</div>
 
 	<!--  Scripts-->
