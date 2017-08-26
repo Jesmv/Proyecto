@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
+	
 </head>
 <body id="top" class="scrollspy">
 
@@ -63,15 +64,13 @@
                         <?php echo $value->name." ".$value->surname ?>
                     </p>
                     <a href="index.php?controller=Admin&action=deleteAdminUser&id=<?php echo $value->id ?>" class="secondary-content"><i class="material-icons">Eliminar</i></a>
-                    <a href="index.php?controller=Admin&action=deleteAdminUser&id=<?php echo $value->id ?>" class="secondary-content"><i class="material-icons">Admin</i></a>
+                    <a href="index.php?controller=Admin&action=deleteAdminUser&id=<?php echo $value->id ?>" class="waves-effect waves-circle waves-light btn-floating secondary-content"><i class="material-icons">Admin</i></a>
                 </li>
 
             <?php } ?>
             </ul>
         </div>
     </div>    
-		
-	</div>
 
 	<!--  Scripts-->
     <script src="js/jquery-2.1.1.min.js"></script>

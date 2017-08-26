@@ -20,7 +20,12 @@ class AdminController extends ControladorBase {
     public function viewAdminSongs() {
 
         if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
-            $datos = [];
+
+            $modelo = new Song();
+            $songs = $modelo->getAll();
+            $datos = [
+                'canciones'=>$songs
+            ];
             $this->view('adminSong', $datos);
         } else {
             echo 'No autorizado';
@@ -47,14 +52,56 @@ class AdminController extends ControladorBase {
     public function deleteAdminUser() {
         if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
 
-        $modelo = new User();
-        $user = $modelo->deleteById($_GET['id']);
+            $modelo = new User();
+            $user = $modelo->deleteById($_GET['id']);
 
-        header ("Location: index.php?controller=Admin&action=viewAdminUsers");
+            header ("Location: index.php?controller=Admin&action=viewAdminUsers");
         } else {
             echo 'No autorizado';
         }
 
+    }
+
+    public function changeAdminUser() {
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
+
+            $modelo = new User();
+            $user = $modelo->updateValues($_GET['id'], '');
+
+            header ("Location: index.php?controller=Admin&action=viewAdminUsers");
+        } else {
+            echo 'No autorizado';
+        }
+
+    }
+
+    public function addAdminSong() {
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->type == 'admin') {
+
+            $modelo = new Song();
+            $songExist = $model->newSong($_POST['user'], $_POST['email']);
+
+            if ($songExist === null) {
+                $_SESSION['sesionIniciada'] =true;
+
+                $user = $model->saveNewUser($_POST['email'], $_POST['user'], md5($_POST['password']));
+
+                if ($user){
+                    $_SESSION['user'] = $user;
+                    header ("Location: index.php?controller=homeuser&action=viewPage");
+                } else {
+                    $_SESSION['errorRegistro'] = true;           
+                    header ("Location: index.php?controller=User&action=newuser");
+                }
+                
+                
+            } else {
+                $_SESSION['errorRegistro'] = true;           
+                header ("Location: index.php?controller=User&action=newuser");
+            }
+        } else {
+            echo 'No autorizado';
+        }
     }
 
 }

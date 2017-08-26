@@ -98,11 +98,22 @@ class User extends BaseEntity {
         $this->setEmail($email);
         $this->setNick($nick);
         $this->setImage($image);
+        
+
+        // antes de hacer la query tengo que guardar la imagen
+        $imageFile = $this->saveImage();
+
+        if($imageFile === false) {
+            return false;
+        }
+
+        $this->setImage($imageFile);
 
         $query="UPDATE user set 
-                (surname='".$this->email."',
-                email='".$this->email."')
-
+                name='".$this->name."',
+                surname='".$this->surname."', 
+                email='".$this->email."', 
+                image='".$imageFile."'
                 WHERE nick = '".$this->nick."'";
 
         $save=$this->db()->query($query);
@@ -164,6 +175,42 @@ class User extends BaseEntity {
         
     }
 
+    /*Guarda la imagen en una carpeta. Primero comprueba que el campo no esté vacio. Lo hago comprobando si es el error 4, que indica que se encuentra vacio el input del file, si es así me devuelve true, ya que considero que se puede tener vacio porque no se quiera cambiar la imagen.. */
+	private function saveImage() {
+		if ($_FILES['image']['error']==4) {
+			return $this->getImage();
+		} else {
+			/*En este if else se comprueba que la imagen se ha subido. Si es correcto creamos una variable */
+			if (is_uploaded_file ($_FILES['image']['tmp_name'] )) {
+				$fileName = $_FILES['image']['name'];
+				$directoryName = "img/user/";
+				$finalName = $directoryName.$fileName;
+
+				/*Si la imagen es mayor de 500kb nos devolverá un error y no continuará*/
+				if ($_FILES['image']['size'] > 500000) {
+					echo "<script> alert('La imagen supera el tamaño. Máximo 500kb.') </script>";
+					return false;
+				} 
+				
+				/*En el caso de que no tuviesemos permisos no nos dejaria subir la foto y nos mostraría un error, en el caso de que todo fuese correcto, la imagen se guardaría en la carpeta de imágenes y se guarda en una sesión llamada nuevo Avatar para despues guardar la dirección en la base de datos.*/
+				if (is_dir($directoryName)){ 
+					$timeName = time();
+					$fileName = $timeName."-".$fileName;
+					$finalName = $directoryName.$fileName;
+					move_uploaded_file ($_FILES['image']['tmp_name'],$finalName);
+					return $finalName;
+				} else {
+					echo "<script> alert('Error al cargar la imagen2') </script>";
+					return false;
+				}
+				
+			} else {
+				echo "<script> alert('Error al cargar la imagen 1.') </script>";
+				return false;
+			}
+		}	
+
+	}
 
  
 }
