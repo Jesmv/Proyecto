@@ -30,11 +30,13 @@
 		<nav id="nav_f" class="default_color" role="navigation">
 			<div class="container">
 				<div class="nav-wrapper">
-				<a href="#" id="logo-container" class="brand-logo">Song2Song</a>
+				<a href="index.php?controller=Homeuser&action=viewHome" id="logo-container" class="brand-logo">Song2Song</a>
 					<ul class="right hide-on-med-and-down">
+						<li><a href="index.php?controller=Profile&action=profile">Perfil</a></li>
 						<li><a href="index.php?controller=Admin&action=viewAdmin">Admin</a></li>
-						<li><a href="index.php?controller=Admin&action=viewAdminUsers">Usuarios</a></li>      
-						<li><a href="index.php?controller=Admin&action=viewAdminMessage">Message</a></li>      
+						<li><a href="index.php?controller=Admin&action=viewAdminSongs">Canciones</a></li>      
+						<li><a href="index.php?controller=Admin&action=viewAdminMessage">Message</a></li>
+						<li><a href="index.php?controller=User&action=exit">Salir</a></li>      
 					</ul>
 					<ul id="nav-mobile" class="side-nav">
 						<li><a href="index.php?controller=Admin&action=viewAdmin">Admin</a></li>
@@ -63,10 +65,11 @@
                     <p><?php echo $value->nick ?> <br>
                         <?php echo $value->name." ".$value->surname ?>
                     </p>
-                    <a href="index.php?controller=Admin&action=deleteAdminUser&id=<?php echo $value->id ?>" class="secondary-content"><i class="material-icons">Eliminar</i></a>
-                    <a href="index.php?controller=Admin&action=deleteAdminUser&id=<?php echo $value->id ?>" class="waves-effect waves-circle waves-light btn-floating secondary-content"><i class="material-icons">Admin</i></a>
-                </li>
-
+					
+					<a href="index.php?controller=Admin&action=deleteAdminUser&id=<?php echo $value->id ?>" class="secondary-content"><i class="material-icons" style="color:red">delete</i></a>
+                	<a href="index.php?controller=Admin&action=changeAdmin&id=<?php echo $value->id ?>" class="secondary-content" style="margin-right: 46px">Admin</a>
+					
+				</li>
             <?php } ?>
             </ul>
         </div>

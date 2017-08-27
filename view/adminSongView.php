@@ -10,21 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
-	<script>
-		$(document).ready(function(){
-			$('.collapsible').collapsible();
-		});
-
-		$('.datepicker').pickadate({
-			selectMonths: true, // Creates a dropdown to control month
-			selectYears: 15, // Creates a dropdown of 15 years to control year,
-			today: 'Today',
-			clear: 'Clear',
-			close: 'Ok',
-			closeOnSelect: false // Close upon selecting a date,
-		});
-	</script>
+	
 </head>
 <body id="top" class="scrollspy">
 
@@ -40,11 +28,13 @@
 		<nav id="nav_f" class="default_color" role="navigation">
 			<div class="container">
 				<div class="nav-wrapper">
-				<a href="#" id="logo-container" class="brand-logo">Song2Song</a>
+				<a href="index.php?controller=Homeuser&action=viewHome" id="logo-container" class="brand-logo">Song2Song</a>
 					<ul class="right hide-on-med-and-down">
+						<li><a href="index.php?controller=Profile&action=profile">Perfil</a></li> 
 						<li><a href="index.php?controller=Admin&action=viewAdmin">Admin</a></li>
 						<li><a href="index.php?controller=Admin&action=viewAdminUsers">Usuarios</a></li>      
-						<li><a href="index.php?controller=Admin&action=viewAdminMessage">Message</a></li>      
+						<li><a href="index.php?controller=Admin&action=viewAdminMessage">Message</a></li> 
+						<li><a href="index.php?controller=User&action=exit">Salir</a></li>
 					</ul>
 					<ul id="nav-mobile" class="side-nav">
 						<li><a href="index.php?controller=Admin&action=viewAdmin">Admin</a></li>
@@ -66,7 +56,7 @@
 		<div class="row">
 			<ul class="collapsible popout" data-collapsible="accordion">
 				<li>
-					<div class="collapsible-header">Añadir canción</div>
+					<div class="collapsible-header"><h5>Añadir canción</h5></div>
 					<div class="collapsible-body">
 						<form  method="post" action="<?php echo $helper->url('Admin', 'addAdminSong') ?>" enctype="multipart/form-data">
 							<div class="row">
@@ -122,22 +112,37 @@
 						</form>
 					</div>
 				</li>
-
-				<?php foreach ($canciones as $key => $value) { ?>
-				<li>
-					<div class="collapsible-header">
-						<img src="<?php echo $value->image ?>" alt="" class="circle">
-						<span class="title"><?php echo $value->title ?></span>
-					</div>
-					<div class="collapsible-body">
-						<p><?php echo $value->author ?></p>
-						<p><?php echo $value->album." ".$value->year ?></p>
-						<p></p>
-					</div>
-				</li>
-				<?php } ?>
 			</ul>
-        </div>
+		</div>
+		<div class="container">    
+			<div class="row">
+				<div class="col s12">
+					<h4 class="header">Lista de canciones</h4>
+				</div>
+
+				<ul class="collection">
+					<?php foreach ($canciones as $key => $value) { ?>
+					
+					<li class="collection-item avatar">
+                    <img src="<?php echo $value->image ?>" alt="" class="circle">
+                    <span class="title"><?php echo $value->title ?></span>
+                    <p>
+						<?php echo $value->author ?> <br>
+						<?php echo $value->group ?> <br>
+						
+                    </p>
+					
+					<a href="index.php?controller=Admin&action=deleteAdminSong&id=<?php echo $value->id ?>" class="secondary-content"><i class="material-icons" style="color:red">delete</i></a>
+					<a id="playAdmin" href="#" class="secondary-content" style="margin-right: 46px"><i class="material-icons">play_circle_filled</i>
+						<audio id="<?php echo $value->id ?>">
+							<source src="<?php echo $value->file ?>" type="audio/mpeg">
+						</audio>
+					</a>
+					</li>
+					<?php } ?>
+				</ul>
+			</div>
+		<div>
     </div>  
 
 	<!--  Scripts-->
@@ -145,6 +150,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 	<script src="js/typeahead.bundle.min.js"></script>
+	<script src="js/adminSong.js"></script>
 
 </body>
 </html>

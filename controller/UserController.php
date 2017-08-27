@@ -47,7 +47,7 @@ class UserController extends ControladorBase {
 
             if ($user){
                 $_SESSION['user'] = $user;
-                header ("Location: index.php?controller=homeuser&action=viewPage");
+                header ("Location: index.php?controller=homeuser&action=viewHome");
             } else {
                 $_SESSION['errorRegistro'] = true;           
                 header ("Location: index.php?controller=User&action=newuser");

@@ -2,7 +2,8 @@ $(function() {
 
 
     var selectedResult = null;
-
+    var listSong = [];
+    var cancionActual = 0;
 
 	// trae por ajax toda la lista de canciones
 	$.get( "?controller=Homeuser&action=ajaxSongs#", function( songs ) {
@@ -19,6 +20,7 @@ $(function() {
             files[songText] = songs[i];
         }
 
+        
 
         $('#buscador').autocomplete({
             data: songNames,
@@ -33,14 +35,27 @@ $(function() {
       
     });
 
+    
 
-    $('#play').click(function() {
-        play(selectedResult);
+    $('#play').click(function() { 
+        listSong.unshift(selectedResult);     
+        play(listSong[0]);
+
+        $("#listSongs").prepend("<li id='"+selectedResult.id+"'>"+selectedResult.title+"</li>");
     });
 
+    $('#addList').click(function() {
+        if (listSong === null) {
+            listSong = [selectedResult]
+        } else {
+            listSong.push(selectedResult);
+        }
+        $("#listSongs").append("<li id='"+selectedResult.id+"'>"+selectedResult.title+" - "+selectedResult.author+"</li>"); 
+        
+    });
 
     function showResult(song) {
-        console.log(song);
+        
         $('#result .card-title').text(song.author);
         $('#result .card-content').text(song.title);
         $('#result img').attr('src', song.image);
@@ -48,14 +63,19 @@ $(function() {
         $('#result').removeClass('hide');
     }
 
-    function play(song) {
+
+    document.getElementById("player").addEventListener('ended', function() {
+        console.log('termino');
+        cancionActual = cancionActual +1;
+        play(listSong[cancionActual]);
+    });
+
+    function play(song) {       
         $('#player').attr('src', song.file);
-        $('#player')[0].play();
+        $('#player')[0].play();        
     }
 
-
-
-
+    
     // Para gestionar los likes
 
     $('#like').click(function() {
@@ -63,5 +83,6 @@ $(function() {
         $.get( "?controller=Homeuser&action=ajaxLikeSong&id=" + songId, function() {});
         return false;
     });
+
 
 });

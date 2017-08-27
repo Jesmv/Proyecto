@@ -14,7 +14,7 @@ class HomeuserController extends ControladorBase {
 
         $datos = [
             'title' => 'User list',
-            'user' => $usermodel->getById(1),
+            'user' => $_SESSION['user'],
             'likes' => $likesModel->findUserLikes($_SESSION['user']->getId()),
             'date' => date("l")
         ];

@@ -29,11 +29,9 @@
             <div class="nav-wrapper">
             <a href="#" id="logo-container" class="brand-logo">Song2Song</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#intro">Service</a></li>
                     <li><a href="#logIn">Log In</a></li>
                     <li><a href="index.php?controller=User&action=newUser">New User</a></li>
-                    <li><a href="#music">Music</a></li>      
-                    <li><a href="#contact">Contact</a></li>     
+                    <li><a href="#music">Music</a></li>    
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="#intro">Service</a></li>
@@ -74,6 +72,11 @@
     </div>
 </div>
 
+<!--Parallax-->
+<div class="parallax-container">
+    <div class="parallax"><img src="img/notas.png"></div>
+</div>
+
 <!--Music-->
 <div class="section scrollspy" id="music">
     <div class="container">
@@ -82,90 +85,114 @@
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/project1.jpg">
+                        <img class="activator" src="img/rock.jpg">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Rock <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Project link</a></p>
+                        <span class="card-title activator grey-text text-darken-4">Rock <i class="mdi-navigation-more-vert right"></i></span>                        
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                        <span class="card-title grey-text text-darken-4">Grupos <i class="mdi-navigation-close right"></i></span>
+                        <ul>
+                            <li>Metallica</li>
+                            <li>AC/DC</li>
+                            <li>Korn</li>
+                            <li>System of a Down</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/project2.jpeg">
+                        <img class="activator" src="img/pop.jpg">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Project link</a></p>
+                        <span class="card-title activator grey-text text-darken-4">Pop <i class="mdi-navigation-more-vert right"></i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                        <span class="card-title grey-text text-darken-4">Artistas<i class="mdi-navigation-close right"></i></span>
+                        <ul>
+                            <li>Selena Gómez</li>
+                            <li>Alejandro Sanz</li>
+                            <li>Melendi</li>
+                            <li>Bisbal</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/project3.png">
+                        <img class="activator" src="img/indie.jpg">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Project link</a></p>
+                        <span class="card-title activator grey-text text-darken-4">Indie <i class="mdi-navigation-more-vert right"></i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                        <span class="card-title grey-text text-darken-4">Grupos <i class="mdi-navigation-close right"></i></span>
+                        <ul>
+                            <li>Vetusta Morla</li>
+                            <li>Los Planetas</li>
+                            <li>Artic Monkeys</li>
+                            <li>Lori Meyers</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/project4.jpg">
+                        <img class="activator" src="img/jazz.jpg">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Project link</a></p>
+                        <span class="card-title activator grey-text text-darken-4">Jazz<i class="mdi-navigation-more-vert right"></i></span>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                        <ul>
+                            <li>Louis Armstrong</li>
+                            <li>Jose James</li>
+                            <li>Emily King</li>
+                            <li>Norah Jones</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/project5.png">
+                        <img class="activator" src="img/clasica.jpg">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Project link</a></p>
+                        <span class="card-title activator grey-text text-darken-4">Música clásica <i class="mdi-navigation-more-vert right"></i></span>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                        <ul>
+                            <li>Beethoven</li>
+                            <li>Mozart</li>
+                            <li>Bach</li>
+                            <li>Claude Debussy</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/project6.jpeg">
+                        <img class="activator" src="img/bandas-sonoras.jpg">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Project link</a></p>
+                        <span class="card-title activator grey-text text-darken-4">Bandas Sonoras<i class="mdi-navigation-more-vert right"></i></span>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                        <ul>
+                            <li>Amelie</li>
+                            <li>Dirty Dancing</li>
+                            <li>Rocky</li>
+                            <li>La vida es Bella</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -173,121 +200,7 @@
     </div>
 </div>
 
-<!--Parallax-->
-<div class="parallax-container">
-    <div class="parallax"><img src="img/notas.png"></div>
-</div>
 
-<!--Team-->
-<div class="section scrollspy" id="team">
-    <div class="container">
-        <h2 class="header text_b"> Our Team </h2>
-        <div class="row">
-            <div class="col s12 m3">
-                <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" src="img/avatar1.png">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Flash <br/>
-                            <small><em><a class="red-text text-darken-1" href="#">CEO</a></em></small></span>
-                        <p>
-                            <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
-                                <i class="fa fa-twitter-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
-                                <i class="fa fa-google-plus-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
-                                <i class="fa fa-linkedin-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m3">
-                <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" src="img/avatar2.png">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Cat Woman<br/>
-                            <small><em><a class="red-text text-darken-1" href="#">Designer</a></em></small>
-                        </span>
-                        <p>
-                            <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
-                                <i class="fa fa-twitter-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
-                                <i class="fa fa-google-plus-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
-                                <i class="fa fa-linkedin-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m3">
-                <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" src="img/avatar3.png">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">
-                            Capt. America <br/>
-                            <small><em><a class="red-text text-darken-1" href="#">CMO</a></em></small></span>
-                        <p>
-                            <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
-                                <i class="fa fa-twitter-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
-                                <i class="fa fa-google-plus-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
-                                <i class="fa fa-linkedin-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m3">
-                <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" src="img/avatar4.png">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Robin<br/>
-                            <small><em><a class="red-text text-darken-1" href="#">Developer</a></em></small></span>
-                        <p>
-                            <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
-                                <i class="fa fa-twitter-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
-                                <i class="fa fa-google-plus-square"></i>
-                            </a>
-                            <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
-                                <i class="fa fa-linkedin-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!--Footer-->
 <footer id="contact" class="page-footer default_color scrollspy">

@@ -26,17 +26,20 @@
             <div class="container">
                 <div class="nav-wrapper">
                     <a href="#" id="logo-container" class="brand-logo">Song2Song</a>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                         <ul class="right hide-on-med-and-down">
                             <li><a href="index.php?controller=Homeuser&action=viewHome">Home</a></li>
-                            <li><a href="index.php?controller=User&action=exit">Salir</a></li>      
-                            <li><a href="#contact">Contact</a></li>     
+                            <?php if($user->getType() == "admin") { ?>
+                            <li><a href="index.php?controller=Admin&action=viewAdmin">Administrador</a></li>
+                            <?php } ?>
+                            <li><a href="index.php?controller=User&action=exit">Salir</a></li>    
                         </ul>
                         <ul id="nav-mobile" class="side-nav">
                             <li><a href="index.php?controller=Homeuser&action=viewHome">Home</a></li>
                             <li><a href="index.php?controller=User&action=exit">Salir</a></li>      
                             <li><a href="#contact">Contact</a></li>  
                         </ul>
-                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                    
                 </div>
             </div>
         </nav>
@@ -91,28 +94,33 @@
         <div class="row col push-s2 s3">
             <img src="<?php echo $user->getImage() ?>" alt="Avatar" class=" circle responsive-img" with="200px" height="200px">
         </div>  
-        <form class="col s5 offset-m2" method="post" action="" ENCTYPE="multipart/form-data">
+        <form class="col s5 offset-m2" method="post" action="<?php echo $helper->url('Profile', 'savePassword') ?>">
             <h4 class="text-center">Cambiar Contraseña</h4>
             <div class="row">
                 <div class="input-field col s12">
                     <input name="oldPass" id="oldPass" name="oldPass" type="password">
                     <label for="oldPass">Antigua contraseña</label>
+                    <span id="passOriginal"><?php echo $error; ?></span>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input name="newPass" id="newPass" name="NewPass" type="password">
                     <label for="newPass">Nueva contraseña</label>
+                    <span id="newPassspan"><?php echo $errorNew; ?></span>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input name="repeatNewPass" id="repeatNewPass" name="repeatNewPass" type="password" >
-                    <label for="repeatNewPass">Repita nueva contraseña</label>
+                    <input name="newpass2" id="newpass2" type="password" >
+                    <label for="newpass2">Repita nueva contraseña</label>
+                    <span id="newpass2span"><?php echo $errorCompare; ?></span>
                 </div>
             </div>
             <div class="row">
-                <input class="btn waves-effect waves-light" type="submit" name="modificar" id="modificar">
+                <button class="btn waves-effect waves-light" type="submit" name="modificar" id="modificar">
+                    Modificar
+                </button>
             </div>
         </form>
     </div>

@@ -125,6 +125,21 @@ class User extends BaseEntity {
         }
     }
 
+    public function savePassword($password, $nick){
+        
+        $query="UPDATE user set 
+                password='".$password."'
+                WHERE nick = '".$nick."'";
+
+        $save=$this->db()->query($query);
+
+        if ($save) {
+            return $this;
+        } else {
+            return false;
+        }
+    }
+
     public function saveNewUser($email, $nick, $password){
         $this->setEmail($email);
         $this->setNick($nick);

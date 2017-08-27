@@ -28,11 +28,13 @@
 		<nav id="nav_f" class="default_color" role="navigation">
 			<div class="container">
 				<div class="nav-wrapper">
-				<a href="#" id="logo-container" class="brand-logo">Song2Song</a>
+				<a href="index.php?controller=Homeuser&action=viewHome" id="logo-container" class="brand-logo">Song2Song</a>
 					<ul class="right hide-on-med-and-down">
+                        <li><a href="index.php?controller=Profile&action=profile">Perfil</a></li>
 						<li><a href="index.php?controller=Admin&action=viewAdminUsers">Users</a></li>
 						<li><a href="index.php?controller=Admin&action=viewAdminSongs">Music</a></li>      
-						<li><a href="index.php?controller=Admin&action=viewAdminMessage">Message</a></li>      
+                        <li><a href="index.php?controller=Admin&action=viewAdminMessage">Message</a></li> 
+                        <li><a href="index.php?controller=User&action=exit">Salir</a></li>     
 					</ul>
 					<ul id="nav-mobile" class="side-nav">
 						<li><a href="index.php?controller=Admin&action=viewAdminUsers">Users</a></li>

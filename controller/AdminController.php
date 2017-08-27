@@ -88,6 +88,31 @@ class AdminController extends ControladorBase {
         }
     }
 
+    public function changeAdmin() {
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+
+            $modelo = new User();
+            $user = $modelo->updateValues('type', 'admin', 'id', $_GET['id']);
+
+            header ("Location: index.php?controller=Admin&action=viewAdminUsers");
+        } else {
+            echo 'No autorizado';
+        }
+    }
+
+    public function deleteAdminSong() {
+       if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+
+            $modelo = new Song();
+            $song = $modelo->deleteById($_GET['id']);
+
+            header ("Location: index.php?controller=Admin&action=viewAdminSong");
+        } else {
+            echo 'No autorizado';
+        }
+ 
+    }
+
 }
 
 ?>

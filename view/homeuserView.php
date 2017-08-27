@@ -11,6 +11,7 @@
 	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
+		
 </head>
 <body id="top" class="scrollspy">
 
@@ -30,8 +31,10 @@
 				<div class="nav-wrapper">
 				<a href="#" id="logo-container" class="brand-logo">Song2Song</a>
 					<ul class="right hide-on-med-and-down">
-						<li><a href="#music">Música</a></li> 
 						<li><a href="index.php?controller=Profile&action=profile">Perfil</a></li>
+						<?php if($user->getType() == "admin") { ?>
+ 						<li><a href="index.php?controller=Admin&action=viewAdmin">Administrador</a></li>
+						<?php } ?>
 						<li><a href="index.php?controller=User&action=exit">Salir</a></li>    
 						        
 					</ul>
@@ -48,48 +51,67 @@
 
 
 	<div class="container">
+		<div class="row">
+			<div class="col s9">
+				<h4>Buscar música</h4>
 
-		<h1>Buscar musica</h1>
-
-		<div class="input-field col s12">
-			<input type="text" id="buscador" class="autocomplete">
-			<label for="buscador">Autocomplete</label>
+				<div class="input-field col s12">
+					<input type="text" id="buscador" class="autocomplete">
+					<label for="buscador">Autocomplete</label>
+				</div>
+			</div>
+			<div class="col s3">
+				<h4>Últimos likes</h4>
+				<div>
+					<ul>
+						<?php foreach ($likes as $song) { ?>
+							<li><?php echo $song->author . ' - ' . $song->title ?></li>
+						<?php } ?>
+					</ul>
+				</div>
+			</div>		
 		</div>
-
-		<br>
-		<br>
-
-
-		<div id="result" class="row hide">
-			<div class="col s6 m7">
-				<div class="card">
-					<div class="card-image">
-						<img src="">
-						<span class="card-title"></span>
-					</div>
-					<div class="card-content"></div>
-						<div class="card-action">
-							<button id="play" >Reproducir</button>
-							<a id="like" href="#">Like</a>
-							<audio id="player" controls>
-								<source src="" type="audio/mpeg">
-							</audio>
+		<div class="row">
+			<div id="result" class="row hide">
+				<div class="col s6 m7">
+					<div class="card">
+						<div class="card-image">
+							<img src="">
+							<span class="card-title"></span>
+						</div>
+						<div class="card-content"></div>
+							<div class="card-action">
+								<a id="play" href="#">Reproducir</a>
+								<a id="like" href="#">Like</a>
+								<a id="addList" href="#">Añadir lista</a>			
+						</div>
 					</div>
 				</div>
 			</div>
-      	</div>
-
-		Ultimos likes
-		<div class="col s6 m7">
-			<ul>
-				<?php foreach ($likes as $song) { ?>
-					<li><?php echo $song->author . ' - ' . $song->title ?></li>
-				<?php } ?>
-			</ul>
-
 		</div>
-
+		
 	</div>
+
+	<!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      	<h4>Lista reproducción</h4>
+	  	<audio id="player" controls>
+			<source src="" type="audio/mpeg">
+		</audio>
+		<div>
+			<ul id="listSongs">
+				
+			</ul>
+		</div>		
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Esconder</a>
+    </div>
+  </div>
 
 	<!--  Scripts-->
     <script src="js/jquery-2.1.1.min.js"></script>
@@ -97,6 +119,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 	<script src="js/typeahead.bundle.min.js"></script>
     <script src="js/buscador.js"></script>
+	<script>
+		$(document).ready(function(){
+			// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+			$('.modal').modal();
+		});
+	</script>
 
 </body>
 </html>
