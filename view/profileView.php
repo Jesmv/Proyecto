@@ -32,7 +32,7 @@
                             <?php if($user->getType() == "admin") { ?>
                             <li><a href="index.php?controller=Admin&action=viewAdmin">Administrador</a></li>
                             <?php } ?>
-                            <li><a href="index.php?controller=User&action=exit">Salir</a></li>    
+                            <li><a href="index.php?controller=User&action=exitFromSession">Salir</a></li>    
                         </ul>
                         <ul id="nav-mobile" class="side-nav">
                             <li><a href="index.php?controller=Homeuser&action=viewHome">Home</a></li>

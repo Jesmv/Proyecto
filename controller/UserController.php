@@ -62,7 +62,7 @@ class UserController extends ControladorBase {
 
     }
 
-    public function exit() {
+    public function exitFromSession() {
         unset($_SESSION['user']);
         unset($_SESSION['sesionIniciada']);
         header ("Location: index.php?controller=Home&action=viewHome");

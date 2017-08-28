@@ -65,7 +65,7 @@ $(function() {
 
 
     document.getElementById("player").addEventListener('ended', function() {
-        console.log('termino');
+        
         cancionActual = cancionActual +1;
         play(listSong[cancionActual]);
     });
@@ -75,6 +75,30 @@ $(function() {
         $('#player')[0].play();        
     }
 
+    $('#playMusic').click(function() {
+        $('#player')[0].play();
+    });
+
+    $('#pauseMusic').click(function() {
+        $('audio')[0].pause();
+    });
+
+    $('#stopMusic').click(function() {
+        $('audio')[0].pause();
+        $('audio')[0].currentTime = 0;
+        return false;
+    });
+
+    $('#forwardMusic').click(function() {
+        cancionActual = cancionActual +1;
+        play(listSong[cancionActual]);
+    });
+
+    $('#backMusic').click(function() {
+        cancionActual = cancionActual -1;
+        play(listSong[cancionActual]);
+    });
+    
     
     // Para gestionar los likes
 

@@ -35,7 +35,7 @@
 						<?php if($user->getType() == "admin") { ?>
  						<li><a href="index.php?controller=Admin&action=viewAdmin">Administrador</a></li>
 						<?php } ?>
-						<li><a href="index.php?controller=User&action=exit">Salir</a></li>    
+						<li><a href="index.php?controller=User&action=exitFromSession">Salir</a></li>    
 						        
 					</ul>
 					<ul id="nav-mobile" class="side-nav">
@@ -98,10 +98,18 @@
   <!-- Modal Structure -->
   <div id="modal1" class="modal bottom-sheet">
     <div class="modal-content">
-      	<h4>Lista reproducción</h4>
-	  	<audio id="player" controls>
+		<h4>Lista reproducción</h4>
+		
+		<button type="button" id="playMusic">Play</button>
+		<button type="button" id="pauseMusic">Pause</button>
+		<button type="button" id="stopMusic">Stop</button>
+		<button type="button" id="forwardMusic">Forward</button>
+		<button type="button" id="backMusic">Back</button>
+
+	  	<audio id="player">
 			<source src="" type="audio/mpeg">
 		</audio>
+
 		<div>
 			<ul id="listSongs">
 				

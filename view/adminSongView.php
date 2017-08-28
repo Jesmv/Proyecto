@@ -34,7 +34,7 @@
 						<li><a href="index.php?controller=Admin&action=viewAdmin">Admin</a></li>
 						<li><a href="index.php?controller=Admin&action=viewAdminUsers">Usuarios</a></li>      
 						<li><a href="index.php?controller=Admin&action=viewAdminMessage">Message</a></li> 
-						<li><a href="index.php?controller=User&action=exit">Salir</a></li>
+						<li><a href="index.php?controller=User&action=exitFromSession">Salir</a></li>
 					</ul>
 					<ul id="nav-mobile" class="side-nav">
 						<li><a href="index.php?controller=Admin&action=viewAdmin">Admin</a></li>

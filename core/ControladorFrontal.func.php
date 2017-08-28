@@ -1,8 +1,8 @@
 <?php
 //FUNCIONES PARA EL CONTROLADOR FRONTAL
 
-const CONTROLADOR_DEFECTO = 'Error';
-const ACCION_DEFECTO = 'viewError';
+const CONTROLADOR_DEFECTO = 'Home';
+const ACCION_DEFECTO = 'viewHome';
 
 function cargarControlador($controller){
     $controlador=ucwords($controller).'Controller';
