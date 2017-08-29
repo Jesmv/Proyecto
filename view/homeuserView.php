@@ -53,24 +53,31 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s9">
-				<h4>Buscar música</h4>
+				<h4>Hola @<?php echo $user->getNick() ?>. ¿Qué te apetece escuchar?</h4>
 
 				<div class="input-field col s12">
 					<input type="text" id="buscador" class="autocomplete">
-					<label for="buscador">Autocomplete</label>
+					<label for="buscador">Buscar</label>
 				</div>
 			</div>
 			<div class="col s3">
-				<h4>Últimos likes</h4>
+				<h4>Tus canciones favoritas</h4>
 				<div>
 					<ul>
-						<?php foreach ($likes as $song) { ?>
-							<li><?php echo $song->author . ' - ' . $song->title ?></li>
+						<?php foreach ($likes as $like) { ?>
+							<li><?php echo $like['song']->author . ' - ' . $like['song']->title ?>. 
+							<?php echo $like['count'] ?>  <i class="fa fa-heart" aria-hidden="true"></i>.</li>
 						<?php } ?>
 					</ul>
 				</div>
 			</div>		
 		</div>
+		<div class="row">
+			<div class="col s9">
+				<h5>Música seleccionada para tí</h5>
+			</div>
+		</div>
+		
 		<div class="row">
 			<div id="result" class="row hide">
 				<div class="col s6 m7">
