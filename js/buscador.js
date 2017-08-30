@@ -72,7 +72,9 @@ $(function() {
 
     function play(song) {       
         $('#player').attr('src', song.file);
-        $('#player')[0].play();        
+        $('#player')[0].play();
+        // guardar log de que se escucha la cancion
+        $.get( "?controller=Homeuser&action=ajaxLogSong&id=" + song.id, function() {});
     }
 
     $('#playMusic').click(function() {

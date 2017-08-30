@@ -35,6 +35,15 @@ class Tag extends BaseEntity {
         }
     }
 
+    public function findTagSong($idsong) {
+        $query=$this->db()->query("SELECT * FROM tags, songtags WHERE idsong='$idsong' AND tags.id = songtags.idtag");
+        $tags = [];
+        while ( $row = $query->fetch_object() ) {
+            array_push($tags, $this->createTag($row));
+        }
+        return $tags;
+    }
+
     public function saveNewTag($tag) {
         $query="INSERT INTO tags (tag) VALUES('".$tag."');";      
         $save=$this->db()->query($query);

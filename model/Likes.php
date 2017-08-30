@@ -15,7 +15,7 @@ class Likes extends BaseEntity {
 
     public function findUserLikes($idUser) {
         $likes = $this->getBy('iduser', $idUser);
-        $query=$this->db()->query("SELECT idsong, count(*) as count FROM likes WHERE iduser='$idUser' GROUP BY idsong");
+        $query=$this->db()->query("SELECT idsong, count(*) as count FROM likes WHERE iduser='$idUser' GROUP BY idsong ORDER BY count(*) DESC ");
         
         // ahora hay que crear un array que por cada posicion contenga la cancion y el numero de veces que tiene like
         $songModel = new Song();

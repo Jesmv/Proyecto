@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 		
 </head>
@@ -49,62 +50,78 @@
 		</nav>
 	</div>
 
+	<div id="section-busca" class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col s8">
+					<h1>Hola @<?php echo $user->getNick() ?>.
+					<h4 class="light red-text text-lighten-4 center-on-small-only">¿Qué te apetece escuchar? <i class="fa fa-music" aria-hidden="true"></i></h4>
 
-	<div class="container">
-		<div class="row">
-			<div class="col s9">
-				<h4>Hola @<?php echo $user->getNick() ?>. ¿Qué te apetece escuchar?</h4>
-
-				<div class="input-field col s12">
-					<input type="text" id="buscador" class="autocomplete">
-					<label for="buscador">Buscar</label>
+					<div class="input-field col s12">
+						<input type="text" id="buscador" class="autocomplete">
+						<label for="buscador">Buscar</label>
+					</div>
 				</div>
-			</div>
-			<div class="col s3">
-				<h4>Tus canciones favoritas</h4>
-				<div>
-					<ul>
-						<?php foreach ($likes as $like) { ?>
-							<li><?php echo $like['song']->author . ' - ' . $like['song']->title ?>. 
-							<?php echo $like['count'] ?>  <i class="fa fa-heart" aria-hidden="true"></i>.</li>
-						<?php } ?>
-					</ul>
-				</div>
-			</div>		
-		</div>
-		<div class="row">
-			<div class="col s9">
-				<h5>Música seleccionada para tí</h5>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div id="result" class="row hide">
-				<div class="col s6 m7">
-					<div class="card">
-						<div class="card-image">
-							<img src="">
-							<span class="card-title"></span>
-						</div>
-						<div class="card-content"></div>
-							<div class="card-action">
-								<a id="play" href="#">Reproducir</a>
-								<a id="like" href="#">Like</a>
-								<a id="addList" href="#">Añadir lista</a>			
+				<div id="result" class="col s4 hide">
+					<div class="">
+						<div class="card">
+							<div class="card-image">
+								<img src="">
+								<span class="card-title"></span>
+								<a id="play" class="btn-floating halfway-fab waves-effect waves-light red">
+									<i class="material-icons">play_arrow</i>
+								</a>
+							</div>
+							<div class="card-content"></div>
+								<div class="card-action">
+									<a id="like" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+									<a id="addList" href="#">
+										<i class="material-icons">playlist_add</i>
+									</a>			
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 
-	<!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
+	<div class="container section">
+		<div class="row">
+			<div class="col s12">
+				<h4>Música seleccionada para tí</h4>
+				<ul>
+						<li><?php echo $recomen1->getAuthor() . ' - ' . $recomen1->getTitle() ?>.</li>
+						<li><?php echo $recomen2->getAuthor()  . ' - ' . $recomen2->getTitle() ?>.</li>
+						<li><?php echo $recomen3->getAuthor()  . ' - ' . $recomen3->getTitle() ?>.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s6">
+				<h4>Tus favoritos</h4>
+				<div>
+					<ul>
+						<?php foreach ($likes as $like) { ?>
+							<li><?php echo $like['song']->author . ' - ' . $like['song']->title ?>. 
+							(<?php echo $like['count'] ?>  <i class="fa fa-heart" aria-hidden="true"></i>).</li>
+						<?php } ?>
+					</ul>
+				</div>
+			</div>	
+			<div class="col s6">
+				<h4>Tu historial de escuchas</h4>
+				<ul>
+					<?php foreach ($logs as $song) { ?>
+						<li><?php echo $song->author . ' - ' . $song->title ?>.</li>
+					<?php } ?>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="reproductor">
 		<h4>Lista reproducción</h4>
 		
 		<button type="button" id="playMusic">Play</button>
@@ -122,9 +139,6 @@
 				
 			</ul>
 		</div>		
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Esconder</a>
     </div>
   </div>
 
