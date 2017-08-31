@@ -15,7 +15,7 @@ class Log extends BaseEntity {
 
     public function findUserLog($idUser) {
         // ordenamos por id descendiente para coger las mas recientes primero
-        $query=$this->db()->query("SELECT idsong FROM log WHERE iduser='$idUser' ORDER BY id desc");
+        $query=$this->db()->query("SELECT idsong FROM log WHERE iduser='$idUser' ORDER BY id desc LIMIT 10");
         $songModel = new Song();
         $songs = [];
         while ( $row = $query->fetch_object() ) {

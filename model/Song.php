@@ -129,12 +129,13 @@ class Song extends BaseEntity {
 
     public function findTagSongs($tag){
 // aqui se buscan todas las canciones que tienen un tag
-        $query=$this->db()->query("SELECT * FROM song, tags, songtags WHERE tag like '%$tag%' and song.id = songtags.idsong and songtags.idtag = tags.id");
-        $row = $query->fetch_object();
-         $songs = [];
+        $query=$this->db()->query("SELECT song.* FROM song, tags, songtags WHERE tag like '%$tag%' and song.id = songtags.idsong and songtags.idtag = tags.id");
+    
+        $songs = [];
         while ( $row = $query->fetch_object() ) {
-        array_push($songs, $this->createSong($row));
+            array_push($songs, $this->createSong($row));
         }
+
         return $songs;
     }
 

@@ -132,8 +132,24 @@
 						
                     </p>
 					
-					<a href="index.php?controller=Admin&action=deleteAdminSong&id=<?php echo $value->id ?>" class="secondary-content"><i class="material-icons" style="color:red">delete</i></a>
-					<a id="playAdmin" href="#" class="secondary-content" style="margin-right: 46px"><i class="material-icons">play_circle_filled</i>
+					<a href="#modal<?php echo $value->id ?>" class="secondary-content modal-trigger">
+						<i class="material-icons" style="color:red">delete</i>
+					</a>
+					
+
+					<!-- Modal Structure -->
+					<div id="modal<?php echo $value->id ?>" class="modal">
+						<div class="modal-content">
+						<h4>¿Borrar esta cancion?</h4>
+						</div>
+						<div class="modal-footer">
+						<a href="index.php?controller=Admin&action=deleteAdminSong&id=<?php echo $value->id ?>" class="modal-action waves-effect waves-green btn-flat">Si</a>
+						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">NO</a>
+						</div>
+					</div>
+					
+					
+					<a href="#" class="secondary-content playAdmin" style="margin-right: 46px"><i class="material-icons">play_circle_filled</i>
 						<audio id="<?php echo $value->id ?>">
 							<source src="<?php echo $value->file ?>" type="audio/mpeg">
 						</audio>
@@ -143,7 +159,10 @@
 				</ul>
 			</div>
 		<div>
-    </div>  
+	</div>  
+	
+
+
 
 	<!--  Scripts-->
     <script src="js/jquery-2.1.1.min.js"></script>
@@ -151,6 +170,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 	<script src="js/typeahead.bundle.min.js"></script>
 	<script src="js/adminSong.js"></script>
+	<script>
+		$(document).ready(function(){
+			// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+			$('.modal').modal();
+		});
+	</script>
 
 </body>
 </html>

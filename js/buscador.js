@@ -36,12 +36,28 @@ $(function() {
     });
 
     
-
+    // el play del resultado principal
     $('#play').click(function() { 
         listSong.unshift(selectedResult);     
         play(listSong[0]);
 
         $("#listSongs").prepend("<li id='"+selectedResult.id+"'>"+selectedResult.title+"</li>");
+    });
+
+    // el resto de plays de la pagina
+    $('.play-song').click(function() { 
+
+        // cogemos el id de la cancion del atributo html del boton pulsado
+        var songid = $(this).attr('data-id');
+
+        /* en este caso hay que buscar la cancion por ajax con ese id, y cuando traigamos la informacion de esa canción,
+        // entonces la podemos reproducir*/
+        $.get( "?controller=Homeuser&action=ajaxSongById&id=" + songid, function( song ) {
+            listSong.unshift(song);     
+            play(listSong[0]);
+            $("#listSongs").prepend("<li id='"+song.id+"'>"+song.title+"</li>");
+        })
+        
     });
 
     $('#addList').click(function() {
@@ -55,7 +71,6 @@ $(function() {
     });
 
     function showResult(song) {
-        
         $('#result .card-title').text(song.author);
         $('#result .card-content').text(song.title);
         $('#result img').attr('src', song.image);
@@ -75,6 +90,7 @@ $(function() {
         $('#player')[0].play();
         // guardar log de que se escucha la cancion
         $.get( "?controller=Homeuser&action=ajaxLogSong&id=" + song.id, function() {});
+        $('#songPlaying').text(song.author + ' - ' + song.title);
     }
 
     $('#playMusic').click(function() {

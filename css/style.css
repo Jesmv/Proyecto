@@ -20,9 +20,10 @@
     min-height: 632px;
     max-height: 864px;
     position: relative;
-    background-image: url(../img/10.jpg);
+    background-image: url(https://source.unsplash.com/featured/?concert);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 #nav_f{
@@ -307,13 +308,10 @@ footer.page-footer {
     margin-right: 46px !important;
 }
 
-.section {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
+
 
 #section-busca {
-    background: #942e5a;
+
 }
 
 body {

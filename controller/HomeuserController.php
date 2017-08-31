@@ -14,22 +14,24 @@ class HomeuserController extends ControladorBase {
         $logModel = new Log();
         $tagModel = new Tag();
 
-        // para recomendar, buscamos los tags mas escuchados y luego buscamos canciones al azar que tengan esos tags
+        // para recomendar, buscamos los tags escuchados y luego buscamos canciones al azar que tengan esos tags
         $songlogs = $logModel->findUserLog($_SESSION['user']->getId());
+
+        
         $todoslostags = [];
         foreach($songlogs as $song) {
             $songtags = $tagModel->findTagSong($song->id);
-            array_merge($todoslostags, $songtags);
+            $todoslostags = array_merge($todoslostags, $songtags);
         }
 
         if (!empty($todoslostags)) {
             // ahora cogemos 3 tags al azar y buscamos canciones con esos tags
             shuffle($todoslostags);
-            $tag1 = $todoslostags[0];
+            $tag1 = $todoslostags[0]->getTag();
             shuffle($todoslostags);
-            $tag1 = $todoslostags[0];
+            $tag2 = $todoslostags[0]->getTag();
             shuffle($todoslostags);
-            $tag3 = $todoslostags[0];
+            $tag3 = $todoslostags[0]->getTag();
             $songModel = new Song();
         // y de todos las canciones para un tag, cogemos una al azar
             $songs = $songModel->findTagSongs($tag1);
@@ -52,6 +54,10 @@ class HomeuserController extends ControladorBase {
             $recomen2 = $songs[0];
             shuffle($songs);
             $recomen3 = $songs[0];
+
+            $tag1= '';
+            $tag2= '';
+            $tag3 = '';
         }
 
         $datos = [
@@ -63,6 +69,10 @@ class HomeuserController extends ControladorBase {
             'recomen1' => $recomen1,
             'recomen2' => $recomen2,
             'recomen3' => $recomen3,
+            'tag1' => $tag1,
+            'tag2' => $tag2,
+            'tag3' => $tag3,
+        
         ];
 
         $this->view('homeuser', $datos);
@@ -73,6 +83,12 @@ class HomeuserController extends ControladorBase {
         $songModel = new Song();
         header('Content-Type: application/json; charset=UTF-8');
         echo json_encode($songModel->getAll());
+    }
+
+    public function ajaxSongById()   {
+        $songModel = new Song();
+        header('Content-Type: application/json; charset=UTF-8');
+        echo json_encode($songModel->getById($_GET['id']));
     }
 
     public function ajaxLikeSong() {

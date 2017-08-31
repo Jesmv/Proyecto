@@ -13,6 +13,11 @@
 </head>
 <body id="top" class="scrollspy">
 
+
+<?php if(isset($_GET['errorlogin'])) {?>
+    <script>alert('Datos de usuario incorrectos')</script>
+<?php } ?>
+
 <!-- Pre Loader -->
 <div id="loader-wrapper">
     <div id="loader"></div>
@@ -74,7 +79,7 @@
 
 <!--Parallax-->
 <div class="parallax-container">
-    <div class="parallax"><img src="img/notas.png"></div>
+    <div class="parallax"><img src="https://source.unsplash.com/featured/?musical-instrument"></div>
 </div>
 
 <!--Music-->
@@ -85,7 +90,7 @@
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/rock.jpg">
+                        <img class="activator" src="https://source.unsplash.com/featured/640x480/?guitar">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Rock <i class="mdi-navigation-more-vert right"></i></span>                        
