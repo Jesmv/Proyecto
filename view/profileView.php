@@ -126,7 +126,7 @@
     </div>
 
     <!--Footer-->
-    <?php include 'view/share/footer.php' ?>
+    <?php include "view/share/footer.php"; ?>
 
     <!--  Scripts-->
     <script src="js/jquery-2.1.1.min.js"></script>

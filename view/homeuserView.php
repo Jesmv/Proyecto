@@ -14,7 +14,7 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 		
 </head>
-<body id="top" class="scrollspy">
+<body id="musicB" class="scrollspy homeuser">
 
 	<!-- Pre Loader -->
 	<div id="loader-wrapper">
@@ -169,30 +169,31 @@
 		</div>
 	</div>
 
-	<div id="reproductor" class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col s8">
-					
-					
-					<button type="button" id="playMusic" class="btn-floating btn-large waves-effect waves-light pink darken-2"><i class="material-icons">play_arrow</i></button>
-					<button type="button" id="pauseMusic" class="btn-floating btn-large waves-effect waves-light pink darken-2"><i class="material-icons">pause</i></button>
-					<button type="button" id="stopMusic" class="waves-effect waves-light btn pink darken-4"><i class="material-icons">stop</i></button>
-					<button type="button" id="backMusic" class="waves-effect waves-light btn pink darken-4"><i class="material-icons">skip_previous</i></button>
-					<button type="button" id="forwardMusic" class="waves-effect waves-light btn pink darken-4"><i class="material-icons">skip_next</i></button>
-					<a class="waves-effect waves-light btn modal-trigger pink darken-4" href="#modal1"><i class="material-icons">list</i></a>
+	<footer>
+		<div id="reproductor" class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col s8">
+						
+						
+						<button type="button" id="playMusic" class="btn-floating btn-large waves-effect waves-light pink darken-2"><i class="material-icons">play_arrow</i></button>
+						<button type="button" id="pauseMusic" class="btn-floating btn-large waves-effect waves-light pink darken-2"><i class="material-icons">pause</i></button>
+						<button type="button" id="stopMusic" class="waves-effect waves-light btn pink darken-4"><i class="material-icons">stop</i></button>
+						<button type="button" id="backMusic" class="waves-effect waves-light btn pink darken-4"><i class="material-icons">skip_previous</i></button>
+						<button type="button" id="forwardMusic" class="waves-effect waves-light btn pink darken-4"><i class="material-icons">skip_next</i></button>
+						<a class="waves-effect waves-light btn modal-trigger pink darken-4" href="#modal1"><i class="material-icons">list</i></a>
 
-					<audio id="player">
-						<source src="" type="audio/mpeg">
-					</audio>
-		
-				</div>
-				<div class="col s4">
-					<h5><i id="songPlaying"></i></h5>
+						<audio id="player">
+							<source src="" type="audio/mpeg">
+						</audio>
+			
+					</div>
+					<div class="col s4">
+						<h5><i id="songPlaying"></i></h5>
+					</div>
 				</div>
 			</div>
-		</div>
-		
+		</footer>
 	</div>
 	
 	 <!-- Modal Trigger -->

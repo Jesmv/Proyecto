@@ -40,7 +40,7 @@ class AdminController extends ControladorBase {
             $datos = [
                 'usuarios' => $users
             ];
-            $this->view('adminusers', $datos);
+            $this->view('adminUsers', $datos);
         } else {
             echo 'No autorizado';
         }
@@ -111,6 +111,17 @@ class AdminController extends ControladorBase {
             echo 'No autorizado';
         }
  
+    }
+
+    public function viewAdminMessage() {
+
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+            $datos = [];
+            $this->view('adminMessage', $datos);
+        } else {
+            echo 'No autorizado';
+        }
+
     }
 
 }
