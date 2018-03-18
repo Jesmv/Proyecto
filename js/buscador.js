@@ -24,12 +24,12 @@ $(function() {
 
         $('#buscador').autocomplete({
             data: songNames,
-            limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+            limit: 20, // El máximo de resultados que puede mostrar de una vez.
             onAutocomplete: function(songText) {
                 selectedResult = files[songText];
                 showResult(files[songText]);
             },
-            minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+            minLength: 1, // La mínima longitud del input para que empiece a autocompletarse.
         });
 
       
@@ -51,7 +51,7 @@ $(function() {
         var songid = $(this).attr('data-id');
 
         /* en este caso hay que buscar la cancion por ajax con ese id, y cuando traigamos la informacion de esa canción,
-        // entonces la podemos reproducir*/
+        entonces la podemos reproducir*/
         $.get( "?controller=Homeuser&action=ajaxSongById&id=" + songid, function( song ) {
             listSong.unshift(song);     
             play(listSong[0]);
