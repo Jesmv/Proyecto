@@ -46,7 +46,7 @@
 	<div class="container">
 		<div class="nav-wrapper center">
 			<h2 class="center-align">EN CONSTRUCCIÓN</h2>
-			<h4>Disculpen las molestias.</h4>
+			<h4>EN CONSTRUCCIÓN Disculpen las molestias.</h4>
 			<a href="<?php echo $helper->url('admin', 'viewAdmin') ?>">Volver</a>
 		</div>
 	</div>
