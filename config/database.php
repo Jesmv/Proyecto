@@ -1,10 +1,10 @@
 <?php 
 	return array(
 		"driver" => "mysql",
-		"host" => "127.0.0.1",
-		"user" => "root",
-		"pass" => "root",
-		"database" => "songtosong",
+		"host" => "mysql.hostinger.es",
+		"user" => "u441235908_song",
+		"pass" => "princesa83",
+		"database" => "u441235908_song",
 		"charset" => "utf8"
 	);
  ?>
