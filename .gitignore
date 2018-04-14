@@ -1,3 +1,4 @@
 .DS_Store
 img/user
 songs
+config/database.php
