@@ -89,6 +89,8 @@ class Song extends BaseEntity {
                        '".$imageurl."');";
         $save=$this->db()->query($query);
 
+        echo $query;
+
         if ($save) {
             $song = $this->findSong($author, $title);
 

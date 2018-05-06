@@ -34,13 +34,13 @@
             <div class="nav-wrapper">
             <a href="#" id="logo-container" class="brand-logo">Song2Song</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#logIn">Log In</a></li>
+                    <li><a href="index.php?controller=User&action=LogInPage">Log In</a></li>
                     <li><a href="index.php?controller=User&action=newUser">New User</a></li>
                     <li><a href="#music">Music</a></li>    
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="#intro">Service</a></li>
-                    <li><a href="#logIn">Log In</a></li>
+                    <li><a href="#index.php?controller=User&action=LogInPage">Log In</a></li>
                     <li><a href="#index.php?controller=User&action=newUser">New User</a></li>
                     <li><a href="#music">Music</a></li>      
                     <li><a href="#contact">Contact</a></li> 
@@ -109,7 +109,7 @@
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://source.unsplash.com/featured/?music-and-sound">
+                        <img class="activator" src="https://source.unsplash.com/featured/640x480/?music-and-sound">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Pop <i class="mdi-navigation-more-vert right"></i></span>
@@ -128,7 +128,7 @@
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://source.unsplash.com/featured/?indie">
+                        <img class="activator" src="https://source.unsplash.com/featured/640x480/?indie">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Indie <i class="mdi-navigation-more-vert right"></i></span>
@@ -144,10 +144,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://source.unsplash.com/featured/?jazz">
+                        <img class="activator" src="https://source.unsplash.com/featured/640x480/?jazz">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Jazz<i class="mdi-navigation-more-vert right"></i></span>
@@ -166,7 +168,7 @@
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://source.unsplash.com/featured/?classic-music">
+                        <img class="activator" src="https://source.unsplash.com/featured/640x480/?classic-music">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Música clásica <i class="mdi-navigation-more-vert right"></i></span>
@@ -185,7 +187,7 @@
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://source.unsplash.com/featured/?films">
+                        <img class="activator" src="https://source.unsplash.com/featured/640x480/?films">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Bandas Sonoras<i class="mdi-navigation-more-vert right"></i></span>

@@ -2,6 +2,29 @@
 
 class UserController extends ControladorBase {
 
+    public function LogInPage() {
+
+        if (isset($_SESSION['errorRegistro']) && $_SESSION['errorRegistro']) {
+            $error = true;
+            // hay que borrar el error de registro
+            // ya que solo aplica una vez.
+            $_SESSION['errorRegistro'] = False;
+        } else {
+            $error = false;
+        }
+
+        if(isset($_GET['errorlogin']) && $_GET['errorlogin']) {
+            $errorlogin = true;
+        } else {
+            $errorlogin = false;
+        }
+
+        $this->view('logIn', [ 
+            'errorRegister' =>  $error,
+            'errorlogin' => $errorlogin
+        ]);
+    }
+
     public function login() {
 
         $model = new User();
@@ -14,7 +37,7 @@ class UserController extends ControladorBase {
             $_SESSION['user'] = $user;
             header ("Location: index.php?controller=Homeuser&action=viewHome");
         } else {
-            header ("Location: index.php?controller=Home&action=viewHome&errorlogin=1");
+            header ("Location: index.php?controller=User&action=LogInPage&errorlogin=1");
         }
 
     }
