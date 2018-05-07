@@ -7,6 +7,28 @@
 	<title>Log In</title>
 </head>
 <body>
+  <!--Navigation-->
+ <div class="navbar-fixed">
+    <nav id="nav_f" class="default_color" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+            <a href="index.php?controller=Home&action=viewHome" id="logo-container" class="brand-logo">Song2Song</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.php?controller=Home&action=viewHome">Home</a></li>
+                    <li><a href="#logIn">Log In</a></li>
+                    <li><a href="index.php?controller=Home&action=viewHome">Music</a></li>     
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="index.php?controller=User&action=viewHome">Home</a></li>
+                    <li><a href="#logIn">Log In</a></li>
+                    <li><a href="#music">Music</a></li>      
+                    <li><a href="#contact">Contact</a></li> 
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </div>
+    </nav>
+</div>
 	<div id="logIn">
       <h4>Iniciar Sesion</h4>
       <form action="<?php echo $helper->url('User', 'login') ?>" method="post">
@@ -30,5 +52,7 @@
         </div>
       </form>
   </div>
+  <!--Footer-->
+  <?php include "view/share/footer.php"; ?>
 </body>
 </html>

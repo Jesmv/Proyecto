@@ -18,15 +18,6 @@
     <script>alert('Datos de usuario incorrectos')</script>
 <?php } ?>
 
-<!-- Pre Loader -->
-<div id="loader-wrapper">
-    <div id="loader"></div>
- 
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
- 
-</div>
-
 <!--Navigation-->
  <div class="navbar-fixed">
     <nav id="nav_f" class="default_color" role="navigation">
@@ -211,28 +202,6 @@
 
 <!--Footer-->
 <?php include "view/share/footer.php"; ?>
-
-<!-- Modal Structure -->
-  <div id="logIn" class="modal">
-    <div class="modal-content">
-      <h4>Iniciar Sesion</h4>
-      <form action="<?php echo $helper->url('User', 'login') ?>" method="post">
-         <div class="row">
-          <div class="input-field col s6 " >
-            <input name="user_Name" id="user_Name" type="text" required/>
-            <label for="user_Name" class="#ad1457">Usuario</label>
-          </div>
-          <div class="input-field col s6">
-            <input name="user_Password" id="user_Password" type="password" required/>
-            <label for="user_Password" class="#ad1457">Contraseña</label>
-          </div>
-          <div class="modal-footer" id="sendUser">
-            <button class="btn waves-effect waves-light" type="submit" name="send" id="send">Enviar</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
 
     <!--  Scripts-->
     <script src="js/jquery-2.1.1.min.js"></script>

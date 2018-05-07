@@ -222,6 +222,14 @@ input, textarea {
     border-bottom: 1px solid #fff;
 }
 
+.fondo {
+    background-color: rgba(24, 23, 23, 0.9);
+}
+
+fieldset {
+    background-color: #fff;
+}
+
 nav a.button-collapse {
     left: -25px;
 }
@@ -256,9 +264,33 @@ nav a.button-collapse {
 .parallax-container {
     max-height: 400px;
 }
+.contenedor {
+    display: flex;
+    padding: 1.5%;
+}
 
-footer.page-footer {
-    margin-top: 0px !important;
+.footerList {
+    flex: 1 1 auto;
+}
+
+.nombre {
+    flex: 1 1 auto;
+    color: #EF0897;
+}
+
+.socialList {
+    margin: 0;
+    float: right;
+}
+
+.socialList li {
+    display: inline;
+    align-content: right;
+    
+}
+
+.socialList li a {
+    color: #EF0897;
 }
 
 #user_Password, #user_Name {
