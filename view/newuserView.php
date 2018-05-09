@@ -20,14 +20,11 @@
             <a href="index.php?controller=Home&action=viewHome" id="logo-container" class="brand-logo">Song2Song</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="index.php?controller=Home&action=viewHome">Home</a></li>
-                    <li><a href="#logIn">Log In</a></li>
-                    <li><a href="index.php?controller=Home&action=viewHome">Music</a></li>     
+                    <li><a href="index.php?controller=User&action=LogInPage">Log In</a></li>    
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="index.php?controller=User&action=viewHome">Home</a></li>
-                    <li><a href="#logIn">Log In</a></li>
-                    <li><a href="#music">Music</a></li>      
-                    <li><a href="#contact">Contact</a></li> 
+                    <li><a href="index.php?controller=Home&action=viewHome">Home</a></li>
+                    <li><a href="index.php?controller=User&action=LogInPage">Log In</a></li>  
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
@@ -101,12 +98,15 @@
         </div>  
         </fieldset>
         </form>
+
 </div>
 </div>
 
 
 <!--Footer-->
-<?php include "view/share/footer.php"; ?>
+<footer class="black newFooter">
+  <?php include "view/share/footer.php"; ?>
+  </footer>
 
     <!--  Scripts-->
     <script src="js/jquery-2.1.1.min.js"></script>
