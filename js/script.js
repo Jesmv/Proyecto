@@ -35,7 +35,24 @@ $(function() {
 
 		var value = $('#password').val();
 
-		if (value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/)) {
+		if (value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){4,15}$/)) {
+
+			$('#password').css({'color':'green'});
+			$('#pasSpan').css({'display':'none'});
+
+		} else {
+
+			$('#pasSpan').css({'display':'inherit'});
+		}
+	});
+
+	$('#password').on('input', () => {
+
+		console.log('cambio');
+
+		var value = $('#password').val();
+
+		if (value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){4,15}$/)) {
 
 			$('#password').css({'color':'green'});
 			$('#pasSpan').css({'display':'none'});
@@ -47,6 +64,22 @@ $(function() {
 	});
 
 	$('#password2').blur(() => {
+
+		var value = $('#password2').val();
+		var firstValue = $('#password').val();
+
+		if (value === firstValue) {
+
+			$('#password2').css({'color':'green'});
+			$('#pas2Span').css({'display':'none'});
+
+		} else {
+			
+			$('#pas2Span').css({'display':'inherit'});
+		}
+	});
+
+	$('#password2').on('input', () => {
 
 		var value = $('#password2').val();
 		var firstValue = $('#password').val();
