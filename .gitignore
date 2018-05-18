@@ -1,5 +1,6 @@
 .DS_Store
 .phpintel
 img/user
+img/song
 songs
 config/database.php
