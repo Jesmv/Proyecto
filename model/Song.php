@@ -5,6 +5,7 @@ class Song extends BaseEntity {
     private $title;
     private $author;
     private $file;
+    private $image;
 
      
     public function __construct() {
@@ -68,9 +69,14 @@ class Song extends BaseEntity {
         $this->image = $image;
     }
 
-    public function saveNewSong($author, $title, $group, $album, $year, $tags, $imageurl) {
+    public function saveNewSong($author, $title, $group, $album, $year, $tags) {
         // guardar el archivo de la cancion
         $filename = $this->saveFile();
+
+        // guardar la imagen de la cancion
+        $imageurl = $this->saveImage();
+
+       
 
         // si no se ha podido subir el fichero de la cancion no se hace nada mas
         if(!$filename) {
@@ -78,8 +84,16 @@ class Song extends BaseEntity {
             return false;
         }
 
-        // guardar la cancion
-        $query="INSERT INTO song (`author`, `title`, `group`, `album`, `year`, `file`, `image`)
+        if($imageurl == '') {
+            $query="INSERT INTO song (`author`, `title`, `group`, `album`, `year`, `file`)
+                VALUES('".$author."',
+                       '".$title."',
+                       '".$group."',
+                       '".$album."',
+                       '".$year."',
+                       '".$filename."');";
+        } else {
+            $query="INSERT INTO song (`author`, `title`, `group`, `album`, `year`, `file`, `image`)
                 VALUES('".$author."',
                        '".$title."',
                        '".$group."',
@@ -87,9 +101,9 @@ class Song extends BaseEntity {
                        '".$year."',
                        '".$filename."',
                        '".$imageurl."');";
+        }
+                       
         $save=$this->db()->query($query);
-
-        echo $query;
 
         if ($save) {
             $song = $this->findSong($author, $title);
@@ -183,12 +197,49 @@ class Song extends BaseEntity {
 					move_uploaded_file ($_FILES['song']['tmp_name'],$finalName);
 					return $finalName;
 				} else {
-					echo "<script> alert('Error al cargar la cancion') </script>";
+					echo "<script> alert('Error al cargar la cancion. No existe directorio') </script>";
 					return false;
 				}
 				
 			} else {
-				echo "<script> alert('Error al cargar la cancion.') </script>";
+				echo "<script> alert('Error al cargar la cancion. Archivo no subido') </script>";
+				return false;
+			}
+		}	
+
+    }
+    
+
+    private function saveImage() {
+		if ($_FILES['image']['error']==4) {
+			return $this->getImage();
+		} else {
+			/*En este if else se comprueba que la imagen se ha subido. Si es correcto creamos una variable */
+			if (is_uploaded_file ($_FILES['image']['tmp_name'] )) {
+				$fileName = $_FILES['image']['name'];
+				$directoryName = "img/song/";
+				$finalName = $directoryName.$fileName;
+
+				/*Si la imagen es mayor de 500kb nos devolverá un error y no continuará*/
+				if ($_FILES['image']['size'] > 500000) {
+					echo "<script> alert('La imagen supera el tamaño. Máximo 500kb.') </script>";
+					return false;
+				} 
+				
+				/*En el caso de que no tuviesemos permisos no nos dejaria subir la foto y nos mostraría un error, en el caso de que todo fuese correcto, la imagen se guardaría en la carpeta de imágenes y se guarda en una sesión llamada nuevo Avatar para despues guardar la dirección en la base de datos.*/
+				if (is_dir($directoryName)){ 
+					$timeName = time();
+					$fileName = $timeName."-".$fileName;
+					$finalName = $directoryName.$fileName;
+					move_uploaded_file ($_FILES['image']['tmp_name'],$finalName);
+					return $finalName;
+				} else {
+					echo "<script> alert('Error al cargar la imagen. No existe directory') </script>";
+					return false;
+				}
+				
+			} else {
+				echo "<script> alert('Error al cargar la imagen 1. Imagen no subida') </script>";
 				return false;
 			}
 		}	

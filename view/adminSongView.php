@@ -90,10 +90,16 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="input-field col s6">
-									<input id="imageurl" type="text" name="imageurl">
-									<label for="imageurl">Url de la imagen</label>
+								<div class="file-field input-field col s6" >
+									<div class="btn">
+										<span>Imagen</span>
+										<input type="file" name="image"/>
+									</div>
+									<div class="file-path-wrapper">
+										<input class="file-path validate" id="image" type="text"/>
+									</div>
 								</div>
+
 								<div class="file-field input-field col s6">
 									<div class="btn">
 										<span>Canción</span>
@@ -104,6 +110,7 @@
 									</div>
 								</div>
 							</div>
+
 							<div class="row">
 								<button class="btn waves-effect waves-light" type="submit" name="action">
 									Guardar

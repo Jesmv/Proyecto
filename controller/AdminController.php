@@ -78,7 +78,7 @@ class AdminController extends ControladorBase {
             $model = new Song();
             $songExist = $model->findSong($_POST['autor'], $_POST['titulo']);
             if (!$songExist) {
-                $model->saveNewSong($_POST['autor'], $_POST['titulo'], $_POST['grupo'], $_POST['album'], $_POST['year'], $_POST['tags'], $_POST['imageurl']);
+                $model->saveNewSong($_POST['autor'], $_POST['titulo'], $_POST['grupo'], $_POST['album'], $_POST['year'], $_POST['tags']);
             } else {
                 echo "<script> alert('Ya existe esta canción') </script>";
             }
