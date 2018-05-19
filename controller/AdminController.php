@@ -6,7 +6,7 @@ cuando ya ha hecho login
 class AdminController extends ControladorBase {
 
     public function viewAdmin() {
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
             $datos = [];
             $this->view('admin', $datos);
         } else {
@@ -18,7 +18,7 @@ class AdminController extends ControladorBase {
 
     public function viewAdminSongs() {
 
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
             $modelo = new Song();
             $songs = $modelo->getAll();
             $datos = [
@@ -33,7 +33,7 @@ class AdminController extends ControladorBase {
 
     public function viewAdminUsers() {
 
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
             
             $modelo = new User();
             $users = $modelo->getAll();
@@ -48,9 +48,16 @@ class AdminController extends ControladorBase {
     }
 
     public function deleteAdminUser() {
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+        $modelo = new User();
+        $user = $modelo->getById($_GET['id']);
 
-            $modelo = new User();
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'root') {
+
+            $user = $modelo->deleteById($_GET['id']);
+
+            header ("Location: index.php?controller=Admin&action=viewAdminUsers");
+        } elseif($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin' && $user->type == 'user') {
+            
             $user = $modelo->deleteById($_GET['id']);
 
             header ("Location: index.php?controller=Admin&action=viewAdminUsers");
@@ -61,7 +68,7 @@ class AdminController extends ControladorBase {
     }
 
     public function changeAdminUser() {
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
 
             $modelo = new User();
             $user = $modelo->updateValues($_GET['id'], '');
@@ -74,7 +81,7 @@ class AdminController extends ControladorBase {
     }
 
     public function addAdminSong() {
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
             $model = new Song();
             $songExist = $model->findSong($_POST['autor'], $_POST['titulo']);
             if (!$songExist) {
@@ -89,7 +96,7 @@ class AdminController extends ControladorBase {
     }
 
     public function changeAdmin() {
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'root') {
 
             $modelo = new User();
             $user = $modelo->updateValues('type', 'admin', 'id', $_GET['id']);
@@ -101,7 +108,7 @@ class AdminController extends ControladorBase {
     }
 
     public function deleteAdminSong() {
-       if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+       if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
 
             $modelo = new Song();
             $song = $modelo->deleteById($_GET['id']);
@@ -115,7 +122,7 @@ class AdminController extends ControladorBase {
 
     public function viewAdminMessage() {
 
-        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'admin') {
+        if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
             $datos = [];
             $this->view('adminMessage', $datos);
         } else {

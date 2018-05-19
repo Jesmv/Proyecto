@@ -29,7 +29,7 @@
                     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                         <ul class="right hide-on-med-and-down">
                             <li><a href="index.php?controller=Homeuser&action=viewHome">Home</a></li>
-                            <?php if($user->getType() == "admin") { ?>
+                            <?php if($user->getType() == "admin" || $user->getType() == "root") { ?>
                             <li><a href="index.php?controller=Admin&action=viewAdmin">Administrador</a></li>
                             <?php } ?>
                             <li><a href="index.php?controller=User&action=exitFromSession">Salir</a></li>    
