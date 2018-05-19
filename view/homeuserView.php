@@ -162,7 +162,7 @@
 				<ul class="collection">
 					<?php foreach ($logs as $song) { ?>
 						<li class="collection-item"><div><?php echo $song->author . ' - ' . $song->title ?>.
-						<a href="#!" class="secondary-content play-song" data-id="<?php echo $like['song']->id ?>"><i class="material-icons pink-text text-darken-2">play_arrow</i></a></div></li>
+						<a href="#!" class="secondary-content play-song" data-id="<?php echo $song->id ?>"><i class="material-icons pink-text text-darken-2">play_arrow</i></a></div></li>
 					<?php } ?>
 				</ul>
 			</div>
