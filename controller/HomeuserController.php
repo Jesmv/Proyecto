@@ -59,12 +59,21 @@ class HomeuserController extends ControladorBase {
             $tag2= '';
             $tag3 = '';
         }
+        
+        $noDuplicate = [];
+
+        //Comprueba que no se repita una canción en logs
+        foreach($songlogs as $log) {
+            If(!in_array($log, $noDuplicate)){
+                $noDuplicate[] = $log;
+            }
+        }
 
         $datos = [
             'title' => 'User list',
             'user' => $_SESSION['user'],
             'likes' => $likesModel->findUserLikes($_SESSION['user']->getId()),
-            'logs' => $songlogs,
+            'logs' => $noDuplicate,
             'date' => date("l"),
             'recomen1' => $recomen1,
             'recomen2' => $recomen2,
