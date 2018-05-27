@@ -26,8 +26,6 @@ function lanzarAccion($controllerObj){
     if(isset($_GET["action"]) && method_exists($controllerObj, $_GET["action"])){
         cargarAccion($controllerObj, $_GET["action"]);
     }else{
-
-    var_dump($controllerObj);
         cargarAccion($controllerObj, ACCION_DEFECTO);
     }
 }

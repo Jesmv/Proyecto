@@ -120,56 +120,50 @@
 					</div>
 				</li>
 			</ul>
-		</div>
-		<div class="container">    
-			<div class="row">
-				<div class="col s12">
-					<h4 class="header">Lista de canciones</h4>
-				</div>
-
-				<ul class="collection">
-					<?php foreach ($canciones as $key => $value) { ?>
-					
-					<li class="collection-item avatar">
-                    <img src="<?php echo $value->image ?>" alt="" class="circle">
-                    <span class="title"><?php echo $value->title ?></span>
-                    <p>
-						<?php echo $value->author ?> <br>
-						<?php echo $value->group ?> <br>
-						
-                    </p>
-					
-					<a href="#modal<?php echo $value->id ?>" class="secondary-content modal-trigger">
-						<i class="material-icons" style="color:red">delete</i>
-					</a>
-					
-
-					<!-- Modal Structure -->
-					<div id="modal<?php echo $value->id ?>" class="modal">
-						<div class="modal-content">
-						<h4>¿Borrar esta cancion?</h4>
-						</div>
-						<div class="modal-footer">
-						<a href="index.php?controller=Admin&action=deleteAdminSong&id=<?php echo $value->id ?>" class="modal-action waves-effect waves-green btn-flat">Si</a>
-						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">NO</a>
-						</div>
-					</div>
-					
-					
-					<a href="#" class="secondary-content playAdmin" style="margin-right: 46px"><i class="material-icons">play_circle_filled</i>
-						<audio id="<?php echo $value->id ?>">
-							<source src="<?php echo $value->file ?>" type="audio/mpeg">
-						</audio>
-					</a>
-					</li>
-					<?php } ?>
-				</ul>
+		</div>  
+		<div class="row">
+			<div class="col s12">
+				<h4 class="header">Lista de canciones</h4>
 			</div>
-		<div>
+		</div>
+		<div class="row">
+			<ul class="collection">
+				<?php foreach ($canciones as $key => $value) { ?>
+					
+				<li class="collection-item avatar">
+                <img src="<?php echo $value->image ?>" alt="" class="circle">
+                <span class="title"><?php echo $value->title ?></span>
+                <p>
+					<?php echo $value->author ?> <br>
+					<?php echo $value->group ?> <br>
+						
+                </p>
+					
+				<a href="#modal<?php echo $value->id ?>" class="secondary-content modal-trigger">
+					<i class="material-icons" style="color:red">delete</i>
+				</a>
+				<!-- Modal Structure -->
+				<div id="modal<?php echo $value->id ?>" class="modal">
+					<div class="modal-content">
+					<h4>¿Borrar esta cancion?</h4>
+					</div>
+					<div class="modal-footer">
+					<a href="index.php?controller=Admin&action=deleteAdminSong&id=<?php echo $value->id ?>" class="modal-action waves-effect waves-green btn-flat">Si</a>
+					<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">NO</a>
+					</div>
+				</div>
+					
+				<a href="#" class="secondary-content playAdmin" style="margin-right: 46px"><i class="material-icons">play_circle_filled</i>
+					<audio id="<?php echo $value->id ?>">
+						<source src="<?php echo $value->file ?>" type="audio/mpeg">
+					</audio>
+				</a>
+				</li>
+				<?php } ?>
+			</ul>
+		</div>
 	</div>  
 	
-
-
 
 	<!--  Scripts-->
     <script src="js/jquery-2.1.1.min.js"></script>

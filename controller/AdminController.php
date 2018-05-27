@@ -15,10 +15,10 @@ class AdminController extends ControladorBase {
 
     }
 
+    //Acción por defecto
     public function viewHome() {
         $this->viewAdminSongs();
     }
-
 
     public function viewAdminSongs() {
 
