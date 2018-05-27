@@ -15,6 +15,10 @@ class AdminController extends ControladorBase {
 
     }
 
+    public function viewHome() {
+        $this->viewAdminSongs();
+    }
+
 
     public function viewAdminSongs() {
 
@@ -48,6 +52,7 @@ class AdminController extends ControladorBase {
     }
 
     public function deleteAdminUser() {
+
         $modelo = new User();
         $user = $modelo->getById($_GET['id']);
 
@@ -68,7 +73,7 @@ class AdminController extends ControladorBase {
     }
 
     public function changeAdminUser() {
-        if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
+        if ($_SESSION['sesionIniciada'] == true && $_SESSION['user']->getType() == 'root') {
 
             $modelo = new User();
             $user = $modelo->updateValues($_GET['id'], '');
