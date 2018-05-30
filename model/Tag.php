@@ -61,4 +61,12 @@ class Tag extends BaseEntity {
         return $tag;
     }
 
+    public function deleteSongTag($idSong) {
+        $tag = new Tag();
+        $songTags = $tag->findTagSong($idSong);
+        if(!empty($songTags)) {
+            $query=$this->db()->query("DELETE FROM songtags WHERE idsong='$idSong'");
+        }
+    }
+
 }

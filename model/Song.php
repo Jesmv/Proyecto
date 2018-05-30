@@ -144,7 +144,7 @@ class Song extends BaseEntity {
     }
 
     public function findTagSongs($tag){
-// aqui se buscan todas las canciones que tienen un tag
+        // aqui se buscan todas las canciones que tienen un tag
         $query=$this->db()->query("SELECT song.* FROM song, tags, songtags WHERE tag like '%$tag%' and song.id = songtags.idsong and songtags.idtag = tags.id");
     
         $songs = [];
@@ -176,6 +176,42 @@ class Song extends BaseEntity {
         $song->setFile($row->file);
         $song->setImage($row->image);
         return $song;
+    }
+
+    public function updateImage($id) {
+        $imageurl = $this->saveImage();
+        $song = $this->updateValues('image', $imageurl,'id', $id);
+        return $imageurl;
+    }
+
+    public function updateSong($id, $titulo, $autor, $grupo, $album, $anyo, $tags) {
+ 
+        $query=$this->db()->query("UPDATE song SET title='$titulo', author='$autor', `group`='$grupo', album='$album' WHERE id='$id'");
+        $song = $this->findSong($autor, $titulo);
+        
+        if(!empty($tags)) {
+            // ahora sacamos los tags
+            $tagArray = explode(',', $tags);
+            $tagModel = new Tag();
+
+            // borramos los tag antiguos
+            $tagModel->deleteSongTag($id);
+            
+            foreach ($tagArray as $tag) {
+
+                // buscar o guardar cada tag en bd
+                $tagBD = $tagModel->findTag($tag);
+                if(!$tagBD){
+                    $tagBD = $tagModel->saveNewTag($tag);
+                }
+                // por cada tag guardamos la relacion con la song
+                $query="INSERT INTO songtags (idsong, idtag)
+                        VALUES('".$song->getId()."',
+                            '".$tagBD->getId()."');";
+                $this->db()->query($query);
+            }
+        }
+        
     }
 
     /*Guarda la cancion en una carpeta. Primero comprueba que el campo no esté vacio. Lo hago comprobando si es el error 4, que indica que se encuentra vacio el input del file, si es así me devuelve true, ya que considero que se puede tener vacio porque no se quiera cambiar la imagen.. */

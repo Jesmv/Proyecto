@@ -371,3 +371,6 @@ nav a.button-collapse {
     color: #cbabab;
 }
 
+#songsList {
+    margin: 0 24px; 
+}

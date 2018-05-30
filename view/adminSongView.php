@@ -127,7 +127,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<ul class="collection">
+			<ul class="collection" id="songsList">
 				<?php foreach ($canciones as $key => $value) { ?>
 					
 				<li class="collection-item avatar">
@@ -142,6 +142,18 @@
 				<a href="#modal<?php echo $value->id ?>" class="secondary-content modal-trigger">
 					<i class="material-icons" style="color:red">delete</i>
 				</a>
+				
+					
+				<a href="#" class="secondary-content playAdmin" style="margin-right: 46px"><i class="material-icons">play_circle_filled</i>
+					<audio id="<?php echo $value->id ?>">
+						<source src="<?php echo $value->file ?>" type="audio/mpeg">
+					</audio>
+				</a>
+
+				<a href="#modalEdit<?php echo $value->id ?>" class="secondary-content modal-trigger" style="margin-right: 96px">
+					<i class="material-icons">edit</i>
+				</a>
+
 				<!-- Modal Structure -->
 				<div id="modal<?php echo $value->id ?>" class="modal">
 					<div class="modal-content">
@@ -152,15 +164,67 @@
 					<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">NO</a>
 					</div>
 				</div>
-					
-				<a href="#" class="secondary-content playAdmin" style="margin-right: 46px"><i class="material-icons">play_circle_filled</i>
-					<audio id="<?php echo $value->id ?>">
-						<source src="<?php echo $value->file ?>" type="audio/mpeg">
-					</audio>
-				</a>
+
+				<div id="modalEdit<?php echo $value->id ?>" class="modal">
+				<div class="container">
+					<div class="row">
+						<form id="editImageForm<?php echo $value->id ?>" method="post" action="<?php echo $helper->url('Admin', 'addImageSong') ?>"  enctype="multipart/form-data">
+						<div class="file-field input-field col s6" >
+							
+								<img src="<?php echo $value->image ?>"  id="imageImg<?php echo $value->id ?>" alt="Avatar" class="responsive-img">
+								<input type="file" name="image" id="imageInput<?php echo $value->id ?>" value="" class="imageInput" data-id="<?php echo $value->id ?>"/>
+								<input type="hidden" name="id" value="<?php echo $value->id ?>" />
+							
+						</div>
+						</form>
+					<form  method="post" action="<?php echo $helper->url('Admin', 'updateAdminSong') ?>" enctype="multipart/form-data">
+						<input type="hidden" name="id" value="<?php echo $value->id ?>" />
+						<div class="input-field col s6">
+							<div class="row">
+								<div class="input-field col s12">
+									<input name="titulo" id="titulo" type="text" value="<?php echo $value->title ?>" require/> 
+									<label for="titulo">Título</label> 
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="autor" name="autor" type="text" value="<?php echo $value->author ?>" />
+									<label for="autor">Autor</label>
+								</div>
+							</div>                 
+						</div>
+					</div>
+						<div class="row">
+							<div class="input-field col s6">
+								<input id="grupo" name="grupo" type="text" value="<?php echo $value->group ?>" />
+								<label for="grupo">Grupo/Solista</label>
+							</div>
+							<div class="input-field col s6">
+								<input id="album" name="album" type="text" value="<?php echo $value->album ?>" />
+								<label for="album">Album</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s6">
+								<input id="year" name="year" type="text" value="<?php echo $value->year ?>" min="1900" max="2018">
+								<label for="year">Year</label>
+							</div>
+							<div class="input-field col s6">
+								<input id="tags" type="text" name="tags">
+								<label for="tags">Etiquetas (separadas por comas)</label>
+							</div>
+						</div>
+						<div class="row">
+							<button class="btn waves-effect waves-light" type="submit" name="action">
+								Modificar
+							</button>
+						</div>
+					</form>
+				</div>
 				</li>
 				<?php } ?>
 			</ul>
+		</div>
 		</div>
 	</div>  
 	

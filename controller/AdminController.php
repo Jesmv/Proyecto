@@ -136,6 +136,30 @@ class AdminController extends ControladorBase {
 
     }
 
+    public function addImageSong() {
+
+        if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
+            $model = new Song();
+            $imageUrl = $model->updateImage($_POST['id']);
+
+        } else {
+            echo 'No autorizado';
+        }
+    }
+
+    public function updateAdminSong() {
+        if ($_SESSION['sesionIniciada'] == true && ($_SESSION['user']->getType() == 'admin' || $_SESSION['user']->getType() == 'root')) {
+            $model = new Song();
+
+            $song = $model->updateSong($_POST['id'], $_POST['titulo'], $_POST['autor'], $_POST['grupo'], $_POST['album'], $_POST['year'], $_POST['tags']);
+
+            //header ("Location: index.php?controller=Admin&action=viewAdminSong");
+         
+        } else {
+            echo 'No autorizado';
+        }
+    }
+
 }
 
 ?>

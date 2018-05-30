@@ -17,5 +17,22 @@ $(function() {
             isPlaying = false;
         }
     });
+
+    $('.imageInput').change(function() {
+        var id = $(this).data('id');
+        var formData = new FormData(document.getElementById("editImageForm" + id));
+        
+        $.ajax({
+            url: "index.php?controller=Admin&action=addImageSong",
+            type: "post",
+            dataType: "html",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function(res){
+            $('#imageImg'+ id).attr('src', res);
+        });
+    })
     
  });   
