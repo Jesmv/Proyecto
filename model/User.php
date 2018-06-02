@@ -228,7 +228,19 @@ class User extends BaseEntity {
 			}
 		}	
 
-	}
+    }
+    
+    public function changePassword($user) {
+        $password = $this->newPassword();
+        $model = $this->updateValues('password', md5($password), 'id', $user[0]->id);       
+        return $password;
+    }
+
+    public function newPassword() {
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $password = substr( str_shuffle( $characters ), 0, 8 );
+        return $password;
+    }
 
  
 }

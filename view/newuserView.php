@@ -43,7 +43,7 @@
     <?php  } ?>
       
       <form class="col s12 m6 offset-m3" method="post" action="<?php echo $helper->url('User', 'register') ?>">
-      <fieldset>
+      <fieldset id="newUser">
         <h4 class="col s12 offset-m2">Unete a Song2Song</h4>
         <div class="row">
             <div class="input-field col s6 offset-m2">
@@ -91,7 +91,7 @@
         </div>
         <div class="row">
             <div class="col s12 offset-m4">
-                <button class="btn waves-effect waves-light" type="submit" name="action" id="send">
+                <button class="btn waves-effect waves-light send" type="submit" name="action" id="send">
                     Enviar
                 </button>
             </div> 

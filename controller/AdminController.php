@@ -153,7 +153,7 @@ class AdminController extends ControladorBase {
 
             $song = $model->updateSong($_POST['id'], $_POST['titulo'], $_POST['autor'], $_POST['grupo'], $_POST['album'], $_POST['year'], $_POST['tags']);
 
-            //header ("Location: index.php?controller=Admin&action=viewAdminSong");
+            header ("Location: index.php?controller=Admin&action=viewAdminSong");
          
         } else {
             echo 'No autorizado';

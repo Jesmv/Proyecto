@@ -91,6 +91,50 @@ class UserController extends ControladorBase {
         header ("Location: index.php?controller=Home&action=viewHome");
     }
 
+    //Acción por defecto
+    public function viewHome() {
+        $this->RecoveryPass();
+    }
+
+    public function RecoveryPass() {
+
+        if (isset($_SESSION['errorRegistro']) && $_SESSION['errorRegistro']) {
+            $error = true;
+            // hay que borrar el error de registro
+            // ya que solo aplica una vez.
+            $_SESSION['errorRegistro'] = False;
+        } else {
+            $error = false;
+        }
+
+        $this->view('recoveryPassw', []);
+    }
+
+    public function sendEmail() {
+        $model = new User();
+
+        $user = $model->getBy('email', $_POST['email']);
+
+        if(empty($user)){
+            echo "Email erroneo";
+        } else {
+            $password = $model->changePassword($user);
+            $to = $user[0]->email;
+            $subject = "Song2Song User";
+            $message = '
+                Song2Song
+                Credenciales
+                Usuario: '.$user[0]->nick.'
+                Contraseña: '.$password.'
+                http://localhost/Proyecto/index.php?controller=User&action=LogInPage'
+            ;
+            mail($to, $subject, $message);
+            
+        }
+
+        header ("Location: index.php?controller=Home&action=viewHome");
+    }
+
 }
 
 ?>

@@ -10,7 +10,7 @@
 	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
-<body id="top" class="scrollspy fondo">
+<body>
 
 
 <?php if(isset($_GET['errorlogin'])) {?>
@@ -36,10 +36,9 @@
         </div>
     </nav>
 </div>
-	<div class="container logIn">
-    <div class="row" id="unete">
+	<div class="row">
       
-      <form class="col s12 m4 offset-m4" action="<?php echo $helper->url('User', 'login') ?>" method="post">
+      <form class="col s12"  action="<?php echo $helper->url('User', 'login') ?>" method="post">
       <fieldset>
       <h4 class="col s12 offset-m2">Log In</h4>
          <div class="row">
@@ -56,22 +55,22 @@
           </div>
           <div class="row">
           <div class="modal-footer col s6 offset-m2" id="sendUser">
-            <button class="btn waves-effect waves-light" type="submit" name="send" id="send">Enviar</button>
+            <button class="btn waves-effect waves-light send" type="submit" name="send" id="send">Enviar</button>
           </div>
           </fieldset>  
-
+        <p><a href="http://localhost/Proyecto/index.php?controller=User&action=recoveryPassw">¿Has olvidado la contraseña?</a></p>
           <?php if ($errorlogin) {
 
           	echo 'Error al iniciar sesion';
           } ?>
         </div>
       </form>
-      </div>
+      
   </div>
   <!--Footer-->
-  <footer class="black piePag">
-  <?php include "view/share/footer.php"; ?>
-  </footer>
+    <footer class="black newFooter">
+        <?php include "view/share/footer.php"; ?>
+    </footer>
 
 <!--  Scripts-->
 <script src="js/jquery-2.1.1.min.js"></script>
