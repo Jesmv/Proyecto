@@ -59,7 +59,7 @@
           </div>
           </div>
           <div class="row">
-            <p id="lostPass"><a href="http://localhost/Proyecto/index.php?controller=User&action=recoveryPassw">¿Has olvidado la contraseña?</a></p>
+            <p id="lostPass"><a href="index.php?controller=User&action=recoveryPassw">¿Has olvidado la contraseña?</a></p>
           </div> 
           </fieldset>  
         </div>
