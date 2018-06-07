@@ -146,7 +146,7 @@
 		</div>
 				
 
-		<div class="row">
+		<div class="row favoriteSong">
 			<div class="col s6">
 				<h4>Tus favoritos</h4>
 				<ul class="collection">

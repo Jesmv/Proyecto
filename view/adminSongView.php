@@ -56,7 +56,9 @@
 		<div class="row">
 			<ul class="collapsible popout" data-collapsible="accordion">
 				<li>
-					<div class="collapsible-header"><h5>Añadir canción</h5></div>
+					<div class="collapsible-header" id="newSong">
+						<h5>Añadir canción</h5>
+					</div>
 					<div class="collapsible-body">
 						<form  method="post" action="<?php echo $helper->url('Admin', 'addAdminSong') ?>" enctype="multipart/form-data">
 							<div class="row">

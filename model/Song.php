@@ -6,6 +6,8 @@ class Song extends BaseEntity {
     private $author;
     private $file;
     private $image;
+    private $year;
+    private $group;
 
      
     public function __construct() {

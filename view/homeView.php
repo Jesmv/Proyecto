@@ -60,7 +60,7 @@
         <div class="row">
             <div  class="col s12">
                 <h2 class="center header text_h2"> Si te gusta disfrutar de la música has venido al sitio correcto. <span class="span_h2"> Song2Song  </span>
-                te ofrece una experiencia musical, para disfrutar con los amigos o contigo mismo. <span class="span_h2"> ¡Descubreme!</span> </h2>
+                Podrás buscar la música que más te guste y hacer tu lista de reproducción para escucharla. <span class="span_h2"> ¡Descubreme!</span> </h2>
             </div>
         </div>
     </div>

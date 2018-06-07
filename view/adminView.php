@@ -87,7 +87,7 @@
                 <span class="card-title">Mensajes</span>
                 </div>
                 <div class="card-content">
-                <p>Lee los mensajes que te dejan los usuarios y contesta.</p>
+                <p>Gestiona los mensajes que de los usuarios.</p>
                 </div>
                 <div class="card-action">
                 <a href="index.php?controller=Admin&action=viewAdminMessage">Mensajes</a>

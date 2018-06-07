@@ -57,12 +57,11 @@
           <div class="modal-footer col s6 offset-m2" id="sendUser">
             <button class="btn waves-effect waves-light send" type="submit" name="send" id="send">Enviar</button>
           </div>
+          </div>
+          <div class="row">
+            <p id="lostPass"><a href="http://localhost/Proyecto/index.php?controller=User&action=recoveryPassw">¿Has olvidado la contraseña?</a></p>
+          </div> 
           </fieldset>  
-        <p><a href="http://localhost/Proyecto/index.php?controller=User&action=recoveryPassw">¿Has olvidado la contraseña?</a></p>
-          <?php if ($errorlogin) {
-
-          	echo 'Error al iniciar sesion';
-          } ?>
         </div>
       </form>
       

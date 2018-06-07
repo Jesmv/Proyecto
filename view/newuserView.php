@@ -91,7 +91,7 @@
         </div>
         <div class="row">
             <div class="col s12 offset-m4">
-                <button class="btn waves-effect waves-light send" type="submit" name="action" id="send">
+                <button class="btn waves-effect waves-light send" type="submit" name="action">
                     Enviar
                 </button>
             </div> 

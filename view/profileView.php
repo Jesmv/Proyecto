@@ -94,7 +94,8 @@
         <div class="row col push-s2 s3">
             <img src="<?php echo $user->getImage() ?>" alt="Avatar" class=" circle responsive-img" with="200px" height="200px">
         </div>  
-        <form class="col s5 offset-m2" method="post" action="<?php echo $helper->url('Profile', 'savePassword') ?>">
+        <div class="row col s8" id="unete">
+        <form class="col s12 m8 offset-m2" method="post" action="<?php echo $helper->url('Profile', 'savePassword') ?>">
             <h4 class="text-center">Cambiar Contraseña</h4>
             <div class="row">
                 <div class="input-field col s12">
@@ -123,6 +124,7 @@
                 </button>
             </div>
         </form>
+        </div>
     </div>
 
     <!--Footer-->

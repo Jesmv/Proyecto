@@ -55,7 +55,7 @@ class ProfileController extends ControladorBase {
                     }
                     
                 }else {
-                    $errorCompare = "errorultimo";
+                    $errorCompare = "Las contraseñas no coinciden";
                     $errorNew = null;
                 }
             } else {
