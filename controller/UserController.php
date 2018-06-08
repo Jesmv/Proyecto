@@ -126,7 +126,7 @@ class UserController extends ControladorBase {
                 Credenciales
                 Usuario: '.$user[0]->nick.'
                 Contraseña: '.$password.'
-                http://localhost/Proyecto/index.php?controller=User&action=LogInPage'
+                http://song2song.xyz/index.php?controller=User&action=LogInPage'
             ;
             mail($to, $subject, $message);
             
