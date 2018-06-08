@@ -10,7 +10,7 @@ class AdminController extends ControladorBase {
             $datos = [];
             $this->view('admin', $datos);
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
 
     }
@@ -30,7 +30,7 @@ class AdminController extends ControladorBase {
             ];
             $this->view('adminSong', $datos);
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
 
     }
@@ -46,7 +46,7 @@ class AdminController extends ControladorBase {
             ];
             $this->view('adminUsers', $datos);
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
 
     }
@@ -67,7 +67,7 @@ class AdminController extends ControladorBase {
 
             header ("Location: index.php?controller=Admin&action=viewAdminUsers");
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
 
     }
@@ -80,7 +80,7 @@ class AdminController extends ControladorBase {
 
             header ("Location: index.php?controller=Admin&action=viewAdminUsers");
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
 
     }
@@ -96,7 +96,7 @@ class AdminController extends ControladorBase {
             }
             $this->viewAdminSongs();
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
     }
 
@@ -108,7 +108,7 @@ class AdminController extends ControladorBase {
 
             header ("Location: index.php?controller=Admin&action=viewAdminUsers");
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
     }
 
@@ -120,7 +120,7 @@ class AdminController extends ControladorBase {
 
             header ("Location: index.php?controller=Admin&action=viewAdminSong");
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
  
     }
@@ -131,7 +131,7 @@ class AdminController extends ControladorBase {
             $datos = [];
             $this->view('adminMessage', $datos);
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
 
     }
@@ -143,7 +143,7 @@ class AdminController extends ControladorBase {
             $imageUrl = $model->updateImage($_POST['id']);
 
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
     }
 
@@ -156,7 +156,7 @@ class AdminController extends ControladorBase {
             header ("Location: index.php?controller=Admin&action=viewAdminSong");
          
         } else {
-            echo 'No autorizado';
+            header ("Location: index.php?controller=Home&action=viewHome");
         }
     }
 
